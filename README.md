@@ -1,67 +1,103 @@
-# ruby-getting-started
+StreamShare
 
-A barebones Rails app, which can easily be deployed to Heroku.
+Project Proposal
 
-This application support the [Getting Started with Ruby on Heroku](https://devcenter.heroku.com/articles/getting-started-with-ruby) article - check it out.
+CMPT 276
 
-## Running Locally
+Amandeep Rehal, Carter Kelly, Dillon Van Horn, Mya May, and Phillip Dykman
 
-Make sure you have Ruby installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+Group 3
 
-```sh
-$ git clone git@github.com:heroku/ruby-getting-started.git
-$ cd ruby-getting-started
-$ bundle install
-$ bundle exec rake db:create db:migrate
-$ heroku local
-```
+StreamShare
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+20th October 2017
 
-## Deploying to Heroku
+ABSTRACT
 
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku run rake db:migrate
-$ heroku open
-```
+StreamShare is a collective shared media center.
 
-or
+Users upload media (video, music, photos, etc) that they would like to access and/or stream over the internet,
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+and can set up sharing with other users. Each user then has a media library of content combined from their own and shared uploads.
 
-## Docker
+The service pulls metadata, and the user can create playlists, read reviews and have automatic album art/poster art.
 
-The app can be run and tested using the [Heroku Docker CLI plugin](https://devcenter.heroku.com/articles/local-development-with-docker-compose).
+The inter-user mechanics and file hosting (sharing, access, communication, uploading) is similar to Google Drive.
 
-Make sure the plugin is installed:
+The media library management similar to XBMC - an online media center.
 
-    heroku plugins:install heroku-docker
+COMPETITIVE ANALYSIS
 
-Configure Docker and Docker Compose:
+There are many different media centers available on the internet.
 
-    heroku docker:init
+It seems that most of them focus on either music (Subsonic, AudioGalaxy), or video (Air Video).
 
-And run the app locally:
+StreamShare focuses on on all types of media, with dedicated players for each kind.
 
-    docker-compose up web
+Users who want access to all their media (or the media shared by a friend) would use StreamShare
 
-The app will now be available on the Docker daemon IP on port 8080.
+as a substitute for multiple apps focused on different things.
 
-To work with the local database and do migrations, you can open a shell:
+SCOPE
 
-    docker-compose run shell
-    bundle exec rake db:migrate
+User login and session control
 
-You can also use Docker to release to Heroku:
+-User-space content
 
-    heroku create
-    heroku docker:release
-    heroku open
+-User access to shared data
 
-## Documentation
+-Inter-user interactions - communication, sharing, allow/deny access to personal library
 
-For more information about using Ruby on Heroku, see these Dev Center articles:
+File hosting
 
-- [Ruby on Heroku](https://devcenter.heroku.com/categories/ruby)
+-Users have individual storage space
+
+-Upload protocols (web (http), SFTP, etc.)
+
+Media library
+
+-Web players for media types
+
+-Automatic metadata fetching (art, synopsis, reviews, subtitles, etc.)
+
+-Library navigation
+
+API integration
+
+-Media metadata fetching (several different APIs for media types - IMDB for reviews, OpenSubtitles for subs, etc.)
+
+-Social media integration (twitter, facebook, etc.)
+
+SAMPLE STORIES
+
+Story #1: User Authentication
+
+When the user clicks on the sign up or sign in, the sign up or sign in page will be loaded.
+
+If the authentication is successful, the default page containing all of the user's file will be displayed.
+
+The default page has a navigation bar where the use can search the uploaded files, find metadata of media or logout,
+
+which will exit the app and go back to the login page.
+
+Story #2: File Hosting
+
+After the user successfully logs in, the user will be on the default page,
+
+where the user can click upload or find files in the navigation bar. If the user clicks upload,
+
+several upload methods will be displayed, and the user must choose one. Once the user selects the files to be uploaded,
+
+the option of changing another user’s access will be displayed. Here, the user can directly share to email or social media.
+
+Story #3: Media Library Search
+
+The user can use the search bar on the default page to search for the existing media files.
+
+When the media files are searched, the application automatically fetches relevant metadata and displays them.
+
+Story #4: Opening files
+
+If the user clicks on a media file, the built-in player will play the content including the fetched metadata.
+
+The user can resume playing music and video where it left off, or fast forward and backward.
