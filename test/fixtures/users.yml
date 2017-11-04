@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+user:
+  name: bob
+  email: bobemail
+  password: bobpass
+
+admin:
+  name: joey
+  email: joeyemail
+  password: joeypass
+  type: Admin
