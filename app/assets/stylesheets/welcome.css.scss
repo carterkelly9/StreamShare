@@ -1,3 +1,66 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+  color: #261c62;
+  font-family: arial;
+  font-size: 200%;
+  text-align: center;
+  margin-top: 3%;
+}
+
+body {
+  background-color: #e8e6f8;
+}
+
+h4 {
+  color: #261c62;
+  font-family: arial;
+  font-size: 115%;
+  text-align: center;
+}
+
+.login_window {
+    background: #b9b4e9;
+    margin: auto;
+    margin-top: 3%;
+    height: 50%;
+    padding-top: 1%;
+    padding-bottom: 3%;
+    width: 50%;
+}
+
+.login_button {
+  background-color: #746ad2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  width: 15%;
+  margin-top: 30px;
+  margin-left: 42.5%;
+}
+
+.signup_button {
+  background-color: #746ad2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  width: 15%;
+  margin-top: 30px;
+  margin-left: 42.5%;
+}
+
+input[type="email"] {
+    margin-left: 31%;
+    width: 36%;
+}
+
+input[type="password"] {
+    margin-top: 5px;
+    margin-left: 31%;
+    width: 36%;
+}
