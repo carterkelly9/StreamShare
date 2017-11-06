@@ -3,13 +3,16 @@
 <table>
   <tr>
     <th>Title</th>
-    <!-- <th>Operations</th> -->
+    <th>Operations</th>
   </tr>
 
   <% @user.media.each do |medium| %>
   <tr>
     <td>
       <%= medium.title %>
+    </td>
+    <td>
+      <%= link_to 'Delete', library_path(:medium_id => medium.id) , method: :delete%>
     </td>
   </tr>
   <% end %>

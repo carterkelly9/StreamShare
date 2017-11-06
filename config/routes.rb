@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-get 'library/index' => 'library#index'
+  get 'library' => 'library#index'
+  delete 'library' => 'library#delete'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
