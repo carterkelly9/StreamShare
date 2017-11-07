@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   delete 'logout' => 'sessions#destroy'
 
+  get 'admin' => 'admin#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
