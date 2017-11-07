@@ -1,16 +1,8 @@
 class LibraryController < ApplicationController
-
-  #helper methods:
-
-  #TODO get user from session
-  def get_session_user
-    return User.first
-  end
-
-  #Controller actions:
+  before_action :get_session_user
 
   def index
-    @user = get_session_user
+
   end
 
   def delete
@@ -22,4 +14,13 @@ class LibraryController < ApplicationController
 
     redirect_to :action => 'index'
   end
+
+
+  private
+
+  #TODO get user from session
+  def get_session_user
+    @user = User.first
+  end
+
 end
