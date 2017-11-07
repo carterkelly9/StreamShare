@@ -12,9 +12,10 @@ class WelcomeController < ApplicationController
 
   private
 
-  #TODO get user from session
   def get_session_user
-    @user = Admin.first
+    require_user
+    current_user
+    @user = @current_user
   end
 
 end
