@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-=======
 
   get 'library' => 'library#index'
   delete 'library' => 'library#delete'
@@ -23,6 +22,9 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   get 'admin' => 'admin#index'
+
+  delete 'library' => 'library#delete'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
