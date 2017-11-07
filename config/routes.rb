@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'library' => 'library#index'
   delete 'library' => 'library#delete'
 
+  get 'admin' => 'admin#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
