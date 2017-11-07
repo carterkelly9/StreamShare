@@ -1,3 +1,9 @@
+<% if @failed_login %>
+  <script type="text/javascript">
+    alert("Incorrect Email or Password!");
+  </script>
+<% end %>
+
 <div class="container">
   <div class="jumbotron">
     <img class="logo" src="<%= asset_path( 'sswhite.png' ) %>">
