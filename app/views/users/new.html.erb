@@ -1,8 +1,18 @@
-<h1>Sign Up</h1> <br/>
+<div class="container">
+  <div class="jumbotron">
+    <img class="logo" src="<%= asset_path( 'sswhite.png' ) %>">
 
-<%= form_for(@user) do |f| %>
-  Name: <%= f.text_field :name, :placeholder => "Name" %> <br/> <br/>
-  Email: <%= f.email_field :email, :placeholder => "Email" %> <br/> <br/>
-  Password: <%= f.password_field :password, :placeholder => "Password" %> <br/> <br/>
-  <%= f.submit "Create Account" %>
-<% end %>
+    <div class="login_window">
+      <h4>Sign up!</h4>
+      <form autocomplete="on">
+        <%= form_for(@user) do |f| %>
+          <%= f.text_field :name, :placeholder => "Name" %> <br/> <br/>
+          <%= f.email_field :email, :placeholder => "Email" %> <br/> <br/>
+          <%= f.password_field :password, :placeholder => "Password" %> <br/> <br/>
+          <%= f.submit "Sign Up", :class => 'signup_button' %>
+        <% end %>
+        <label>
+      </form>
+    </div>
+  </div>
+</div>

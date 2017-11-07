@@ -1,7 +1,17 @@
-<h1>Log In</h1> <br/>
+<div class="container">
+  <div class="jumbotron">
+    <img class="logo" src="<%= asset_path( 'sswhite.png' ) %>">
 
-<%= form_for(:session, url: login_path) do |f| %>
-  Email: <%= f.email_field :email, :placeholder => "Email" %> <br/> <br/>
-  Password: <%= f.password_field :password, :placeholder => "Password" %> <br/> <br/>
-  <%= f.submit "Log In"%>
-<% end %>
+    <div class="login_window">
+      <h4>Welcome!</h4>
+      <form autocomplete="on">
+        <%= form_for(:session, url: login_path) do |f| %>
+          <%= f.email_field :email, :placeholder => "Email" %> <br/>
+          <%= f.password_field :password, :placeholder => "Password" %> <br/> <br/>
+          <%= f.submit "Log In", :class => 'login_button' %>
+        <% end %>
+        <label>
+      </form>
+    </div>
+  </div>
+</div>
