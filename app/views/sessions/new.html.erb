@@ -1,4 +1,9 @@
 <h1>Log In</h1> <br/>
+<% if @failed_login %>
+  <script type="text/javascript">
+    alert("Incorrect Email or Password!");
+  </script>
+<% end %>
 
 <%= form_for(:session, url: login_path) do |f| %>
   Email: <%= f.email_field :email, :placeholder => "Email" %> <br/> <br/>
