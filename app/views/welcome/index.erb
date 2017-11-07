@@ -1,1 +1,5 @@
-# homepage
+<% if @is_admin %>
+<%= render :template => 'admin/index' %>
+<%  end %>
+
+<%= render :template => 'library/index' %>
