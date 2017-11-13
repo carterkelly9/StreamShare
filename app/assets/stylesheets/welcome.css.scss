@@ -15,6 +15,7 @@ h4 {
 
 .login_window {
     background: #b9b4e9;
+    border-radius: 8px;
     margin: auto;
     margin-top: 3%;
     height: 50%;
@@ -31,8 +32,19 @@ h4 {
   padding: 3px;
   text-align: center;
   width: 20%;
-  margin-top: 25px;
-  margin-left: 40%;
+  margin-top: 10px;
+  margin-left: 39%;
+}
+
+.signup_window {
+    background: #b9b4e9;
+    border-radius: 8px;
+    margin: auto;
+    margin-top: 3%;
+    height: 50%;
+    padding-top: 1%;
+    padding-bottom: 3%;
+    width: 50%;
 }
 
 .signup_button {
@@ -43,23 +55,23 @@ h4 {
   padding: 5px;
   text-align: center;
   width: 20%;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-left: 40%;
 }
 
 input[type="text"] {
-    margin-left: 31%;
+    margin-left: 32%;
     width: 36%;
 }
 
 input[type="email"] {
-    margin-left: 31%;
+    margin-left: 32%;
     width: 36%;
 }
 
 input[type="password"] {
     margin-top: 5px;
-    margin-left: 31%;
+    margin-left: 32%;
     width: 36%;
 }
 

@@ -5,7 +5,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag  '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
- <%= stylesheet_link_tag 'welcome' %>
+  <%= stylesheet_link_tag 'welcome' %>
   <%= javascript_include_tag  '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js' %>
   <%= csrf_meta_tags %>
 </head>
@@ -27,7 +27,7 @@
       </li>
       <li class="navbar-right">
         <% if current_user %>
-          <%= current_user.email %>
+          <p color="white"><%= current_user.email %><p>
         <% else %>
           <%= link_to "Sign Up", 'signup' %>
         <% end %>
