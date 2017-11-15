@@ -10,8 +10,7 @@
 
     <div class="login_window">
       <h4>Welcome!</h4>
-      <form autocomplete="on">
-        <%= form_for(:session, url: login_path) do |f| %>
+        <%= form_for(:session, url: login_path, html: {autocomplete: "on"}) do |f| %>
           <%= f.email_field :email, :placeholder => "Email" %> <br/>
           <%= f.password_field :password, :placeholder => "Password" %> <br/> <br/>
           <%= f.submit "Log In", :class => 'login_button' %>

@@ -18,6 +18,4 @@
 # Ignore ruby-version
 /.ruby-version
 
-Gemfile.lock
-
 db/schema\.rb
