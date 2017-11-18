@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   delete 'library' => 'library#delete'
 
   get 'signup' => 'users#new'
+  post 'signup' => 'users#create'
   resources :users
 
   get 'login' => 'sessions#new'
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
 
   delete 'library' => 'library#delete'
 
+  match ':controller(/:action(/:id))', :via => :get
+  match ':controller(/:action(/:id))', :via => :post
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

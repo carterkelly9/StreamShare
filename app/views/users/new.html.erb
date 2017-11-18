@@ -4,15 +4,24 @@
 
     <div class="login_window">
       <h4>Sign up!</h4>
-      <form autocomplete="on">
-        <%= form_for(@user) do |f| %>
-          <%= f.text_field :name, :placeholder => "Name" %> <br/> <br/>
-          <%= f.email_field :email, :placeholder => "Email" %> <br/> <br/>
-          <%= f.password_field :password, :placeholder => "Password" %> <br/> <br/>
-          <%= f.submit "Sign Up", :class => 'signup_button' %>
-        <% end %>
-        <label>
-      </form>
+      <%= form_for(:user, url: signup_path, html: {autocomplete: "on"}) do |f| %>
+      <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+      <%= f.text_field :name, :placeholder => "Name"%> <br/> <br/>
+      <%= f.email_field :email, :placeholder => "Email"%> <br/> <br/>
+      <%= f.password_field :password, :placeholder => "Password"%> <br/> <br/>
+      <%= f.password_field :password_confirmation, :placeholder => "Confirm Password"%> <br/> <br/>
+      <%= f.submit "Sign Up", :class => 'signup_button' %>
+      <% end %>
+      <label>
+      </div>
     </div>
   </div>
-</div>
