@@ -2,7 +2,7 @@ class LibraryController < ApplicationController
   before_action :get_session_user
 
   def index
-    @uploads = Upload.all
+    
   end
 
   def new

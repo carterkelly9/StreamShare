@@ -1,4 +1,6 @@
 <div class="container">
+  <h1><%= current_user.name %>'s Library :</h1>
+
   <% if !@upload.errors.empty? %>
     <div class="alert alert-error">
       <ul>

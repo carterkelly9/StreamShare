@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
       @admin = @user
       @users = User.all
     end
+    @uploads = Upload.where(user_id: current_user.id)
   end
 
   private
