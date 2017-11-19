@@ -2,7 +2,7 @@ class LibraryController < ApplicationController
   before_action :get_session_user
 
   def index
-    @media = Medium.all
+    @uploads = Upload.all
   end
 
   def new
@@ -28,7 +28,6 @@ class LibraryController < ApplicationController
 
     redirect_to root_path
   end
-
 
   private
 
