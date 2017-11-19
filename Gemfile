@@ -37,3 +37,5 @@ gem 'puma'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'carrierwave', '~>1.0'
