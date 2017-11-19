@@ -11,10 +11,10 @@ Rails.application.routes.draw do
 
 
   get 'library' => 'library#index'
-  delete 'library' => 'library#delete'
+  delete 'library' => 'library#delete' 
 
   get 'signup' => 'users#new'
-  post 'signup' => 'users#create'
+  post 'signup' => "users#create"
   resources :users
 
   get 'login' => 'sessions#new'
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   match ':controller(/:action(/:id))', :via => :get
   match ':controller(/:action(/:id))', :via => :post
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
