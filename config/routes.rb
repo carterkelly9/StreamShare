@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   resources :widgets
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,8 +11,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
 
-  get 'library' => 'library#index'
-  delete 'library' => 'library#delete'
+  # get 'library' => 'library#index'
+  # get 'library' => 'library#new'
+  # post 'library' => 'library#create'
+  # delete 'library' => 'library#delete'
+  resources :library, only: [:index, :new, :create, :delete]
 
   get 'signup' => 'users#new'
   resources :users
