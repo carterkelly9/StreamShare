@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+ .navlinks a {
+   float: left;
+   display: block;
+   text-align: center;
+ }
+/*
+.form-control {
+  margin-top: 2px;
+}*/

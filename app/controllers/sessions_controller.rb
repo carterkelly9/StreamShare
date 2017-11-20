@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    if  session[:user_id]
+      redirect_to root_path
+    end
+
     @failed_login = params[:failed_login]
   end
 
@@ -9,7 +13,7 @@ class SessionsController < ApplicationController
 
     if verify_user(email, password)
       session[:user_id] = @user.id
-      render "welcome/index"
+      redirect_to root_path 
     else
       redirect_to login_path(failed_login: true)
     end
