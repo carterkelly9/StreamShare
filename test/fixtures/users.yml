@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 user:
-  name: bob
-  email: bobemail
-  password: bobpass
+  name: fixtureuser
+  email: fixtureuser@fixture.com
+  password_digest: <%= BCrypt::Password.create('fixtureuserpass', cost: 5) %>
 
 admin:
-  name: joey
-  email: joeyemail
-  password: joeypass
+  name: fixtureadmin
+  email: fixtureuser@fixture.com
+  password_digest: <%= BCrypt::Password.create('fixtureadminpass', cost: 5) %>
   type: Admin
