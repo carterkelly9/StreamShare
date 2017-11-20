@@ -1,5 +1,4 @@
 <div class="container">
-
   <h1><%= @admin.name%>'s Admin Controls</h1>
   <br>
   <h2>User List:</h2>
@@ -10,6 +9,22 @@
       <th>Email</th>
       <th>Type</th>
     </tr>
+
+    <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= user.name %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <%= (user.type.nil?) ? "User" : user.type %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
 
     <% @users.each do |user| %>
     <tr>

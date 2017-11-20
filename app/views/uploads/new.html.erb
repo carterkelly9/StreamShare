@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Upload</h1>
+
+  <% if !@upload.errors.empty? %>
+    <div class="alert alert-error">
+      <ul>
+        <% @upload.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="well">
+    <%= form_for @upload, html: { multipart: true } do |f| %>
+      <%= f.label :title, :placeholder => "Title" %>
+      <%= f.text_field :title %><br/>
+      <%= f.label :attachment %>:
+      <%= f.file_field :attachment %><br/>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
