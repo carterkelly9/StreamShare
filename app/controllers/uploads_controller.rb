@@ -28,9 +28,10 @@ class UploadsController < ApplicationController
 
 private
 
-  #TODO get user from session
   def get_session_user
-    @user = User.first
+    require_user
+    current_user
+    @user = @current_user
   end
 
   def upload_params
