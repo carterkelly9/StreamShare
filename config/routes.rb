@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+  resources :uploads, only: [:index, :new, :create, :destroy]
+
   resources :widgets
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,10 +13,14 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
 
-  get 'library' => 'library#index'
-  delete 'library' => 'library#delete'
+  # get 'library' => 'library#index'
+  # get 'library' => 'library#new'
+  # post 'library' => 'library#create'
+  # delete 'library' => 'library#delete'
+  resources :library, only: [:index, :new, :create, :delete]
 
   get 'signup' => 'users#new'
+  post 'signup' => "users#create"
   resources :users
 
   get 'login' => 'sessions#new'
@@ -24,6 +31,9 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
 
   delete 'library' => 'library#delete'
+
+  match ':controller(/:action(/:id))', :via => :get
+  match ':controller(/:action(/:id))', :via => :post
 
 
   # Example of regular route:

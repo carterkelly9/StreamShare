@@ -15,6 +15,7 @@ h4 {
 
 .login_window {
     background: #b9b4e9;
+    border-radius: 8px;
     margin: auto;
     margin-top: 3%;
     height: 50%;
@@ -27,12 +28,23 @@ h4 {
   background-color: #746ad2;
   border: none;
   border-radius: 8px;
-  color: white;
+  color: black;
   padding: 3px;
   text-align: center;
   width: 20%;
-  margin-top: 25px;
-  margin-left: 40%;
+  margin-top: 10px;
+  margin-left: 39%;
+}
+
+.signup_window {
+    background: #b9b4e9;
+    border-radius: 8px;
+    margin: auto;
+    margin-top: 3%;
+    height: 50%;
+    padding-top: 1%;
+    padding-bottom: 3%;
+    width: 50%;
 }
 
 .signup_button {
@@ -43,24 +55,32 @@ h4 {
   padding: 5px;
   text-align: center;
   width: 20%;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-left: 40%;
 }
 
 input[type="text"] {
-    margin-left: 31%;
-    width: 36%;
+    margin-left: 30%;
+    width: 40%;
+    color: black;
 }
 
 input[type="email"] {
-    margin-left: 31%;
-    width: 36%;
+    margin-left: 30%;
+    width: 40%;
+    color: black;
 }
 
 input[type="password"] {
     margin-top: 5px;
-    margin-left: 31%;
-    width: 36%;
+    margin-left: 30%;
+    width: 40%;
+    color: black;
+}
+
+#upload_title {
+  margin-left: 1%;
+  width: 15%;
 }
 
 .logo{

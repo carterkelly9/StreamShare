@@ -1,0 +1,19 @@
+<% if !@medium.errors.empty? %>
+  <div class="alert alert-error">
+    <ul>
+      <% @medium.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="well">
+  <%= form_for @medium, url: library_path(@user),html: { multipart: true } do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :filename %>
+    <%= f.file_field :filename %>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+</div>

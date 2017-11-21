@@ -6,8 +6,9 @@ class WelcomeController < ApplicationController
     if @user.type == "Admin"
       @is_admin = true
       @admin = @user
-      @users = User.all
+      @users = User.all - [@user]
     end
+    @uploads = @user.uploads
   end
 
   private
