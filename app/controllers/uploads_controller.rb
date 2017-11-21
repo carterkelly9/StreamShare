@@ -14,7 +14,7 @@ class UploadsController < ApplicationController
     @user.uploads << @upload
 
     if @upload.save
-      redirect_to uploads_path, notice: "The file #{@upload.title} has been uploaded."
+      redirect_to root_path, notice: "The file #{@upload.title} has been uploaded."
     else
       render "new"
     end
@@ -23,7 +23,7 @@ class UploadsController < ApplicationController
   def destroy
     @upload = Upload.find(params[:id])
     @upload.destroy
-    redirect_to uploads_path, notice:  "The file #{@upload.title} has been deleted."
+    redirect_to root_path, notice:  "The file #{@upload.title} has been deleted."
   end
 
 private
