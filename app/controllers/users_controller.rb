@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  add_flash_types :user_operation_notice
 
   def new
     @user = User.new
@@ -23,11 +24,13 @@ class UsersController < ApplicationController
 
    user = User.find(params[:id])
 
+   notice = ""
    if @current_user.is_admin && @current_user != user
      user.destroy
+     notice = "The user #{user.name} has been deleted."
    end
 
-     redirect_to root_path
+     redirect_to root_path, user_operation_notice: notice
  end
 
  private

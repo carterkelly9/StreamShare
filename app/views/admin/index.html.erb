@@ -3,6 +3,12 @@
   <hr><br>
   <h2>System User List:</h2>
 
+  <% if !flash[:user_operation_notice].blank? %>
+    <div class="alert alert-info">
+    <%= flash[:user_operation_notice] %>
+    </div>
+  <% end %>
+
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
