@@ -1,7 +1,7 @@
 <div class="container">
   <h1><%= @admin.name%>'s Admin Controls</h1>
-  <br>
-  <h2>User List:</h2>
+  <hr><br>
+  <h2>System User List:</h2>
 
   <table class="table table-bordered table-striped">
     <thead>
@@ -9,22 +9,23 @@
         <th>Name</th>
         <th>Email</th>
         <th>Type</th>
+        <th>Operations</th>
       </tr>
     </thead>
-    <tbody>
-      <% @users.each do |user| %>
-      <tr>
-        <td>
-          <%= user.name %>
-        </td>
-        <td>
-          <%= user.email %>
-        </td>
-        <td>
-          <%= (user.type.nil?) ? "User" : user.type %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
+
+    <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= user.name %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <%= (user.type.nil?) ? "User" : user.type %>
+      </td>
+      <td><%= link_to "Delete", user_path(id: user.id), method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{user.name}?" %></td>
+    </tr>
+    <% end %>
   </table>
 </div>
