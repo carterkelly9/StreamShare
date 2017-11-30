@@ -1,6 +1,7 @@
 <div class="container">
 
-  <h1><%= current_user.name %>'s Library :</h1>
+  <h1><%= current_user.name %>'s Library</h1>
+  <hr>
 
   <% if !flash[:notice].blank? %>
     <div class="alert alert-info">
@@ -16,7 +17,7 @@
       <tr>
         <th>Title</th>
         <th>Download Link</th>
-        <th>&nbsp;</th>
+        <th>Operations</th>
       </tr>
     </thead>
     <tbody>

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :library, only: [:index, :new, :create, :delete]
 
   get 'signup' => 'users#new'
+  post 'signup' => "users#create"
   resources :users
 
   get 'login' => 'sessions#new'
@@ -30,6 +31,9 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
 
   delete 'library' => 'library#delete'
+
+  match ':controller(/:action(/:id))', :via => :get
+  match ':controller(/:action(/:id))', :via => :post
 
 
   # Example of regular route:

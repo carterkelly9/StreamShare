@@ -6,9 +6,9 @@ class WelcomeController < ApplicationController
     if @user.type == "Admin"
       @is_admin = true
       @admin = @user
-      @users = User.all
+      @users = User.all - [@user]
     end
-    @uploads = Upload.where(user_id: current_user.id)
+    @uploads = @user.uploads
   end
 
   private

@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    if  session[:user_id]
+      redirect_to root_path
+    end
+
     @failed_login = params[:failed_login]
   end
 
@@ -9,7 +13,7 @@ class SessionsController < ApplicationController
 
     if verify_user(email, password)
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to root_path 
     else
       redirect_to login_path(failed_login: true)
     end
@@ -25,7 +29,6 @@ class SessionsController < ApplicationController
 
   def verify_user(email, password)
     @user = User.find_by_email(email)
-    return @user && @user.password == password
+    return @user && @user.authenticate(password)
   end
-
 end

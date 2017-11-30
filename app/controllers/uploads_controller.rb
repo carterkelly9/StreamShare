@@ -2,7 +2,7 @@ class UploadsController < ApplicationController
   before_action :get_session_user
 
   def index
-    @uploads = Upload.where(user_id: current_user.id)
+    @uploads = @user.uploads
   end
 
   def new
@@ -11,10 +11,10 @@ class UploadsController < ApplicationController
 
   def create
     @upload = Upload.new(upload_params)
-    @upload.user_id = current_user.id
+    @user.uploads << @upload
 
     if @upload.save
-      redirect_to uploads_path, notice: "The file #{@upload.title} has been uploaded."
+      redirect_to root_path, notice: "The file #{@upload.title} has been uploaded."
     else
       render "new"
     end
@@ -23,14 +23,15 @@ class UploadsController < ApplicationController
   def destroy
     @upload = Upload.find(params[:id])
     @upload.destroy
-    redirect_to uploads_path, notice:  "The file #{@upload.title} has been deleted."
+    redirect_to root_path, notice:  "The file #{@upload.title} has been deleted."
   end
 
 private
 
-  #TODO get user from session
   def get_session_user
-    @user = User.first
+    require_user
+    current_user
+    @user = @current_user
   end
 
   def upload_params
