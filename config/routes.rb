@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-
   resources :uploads, only: [:index, :new, :create, :destroy]
+
+  resources :videos, only: [:index, :new, :create, :show, :destroy]
+  resources :music, only: [:index, :new, :create, :show, :destroy]
+  resources :images, only: [:index, :new, :create, :show, :destroy]
+
 
   resources :widgets
 
