@@ -1,2 +1,35 @@
-<h1>Videos#index</h1>
-<p>Find me in app/views/videos/index.html.erb</p>
+<div class="container">
+
+  <h1><%= current_user.name %>'s Videos Library</h1>
+  <hr>
+
+  <% if !flash[:notice].blank? %>
+    <div class="alert alert-info">
+    <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <br />
+  <%= link_to "Upload", new_video_path, class: "btn btn-primary" %>
+  <br />
+  <br />
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Download Link</th>
+        <th>Operations</th>
+        <th>Extra</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @videos.each do |video| %>
+        <tr>
+          <td><%= video.title %></td>
+          <td><%= link_to "View", video.filename_url %></td>
+          <td><%= button_to "Delete",  video, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{video.title}?" %></td>
+          <td><%= button_to "Show", video, method: :show, class: "btn btn-primary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
