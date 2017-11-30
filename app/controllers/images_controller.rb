@@ -21,7 +21,7 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    @image = Image.find(param[:id])
+    @image = Image.find(params[:id])
     @image.destroy
     redirect_to root_path, notice: "The image #{@image.title} has been deleted."
   end
