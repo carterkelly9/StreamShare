@@ -21,7 +21,7 @@ class SongsController < ApplicationController
   end
 
   def destroy
-    @song = Song.find(param[:id])
+    @song = Song.find(params[:id])
     @song.destroy
     redirect_to root_path, notice: "The song #{@song.title} has been deleted."
   end
