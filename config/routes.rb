@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   # delete 'library' => 'library#delete'
   resources :library, only: [:index, :new, :create, :delete]
 
+  get 'uploader' => 'welcome#uploader'
+
   get 'signup' => 'users#new'
   post 'signup' => "users#create"
   resources :users

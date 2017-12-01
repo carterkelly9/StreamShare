@@ -8,9 +8,7 @@
     <%= flash[:notice] %>
     </div>
   <% end %>
-  <br />
-  <%= link_to "Upload", new_song_path, class: "btn btn-primary" %>
-  <br />
+  
   <br />
   <table class="table table-bordered table-striped">
     <thead>
@@ -18,16 +16,14 @@
         <th>Title</th>
         <th>Download Link</th>
         <th>Operations</th>
-        <th>Extra</th>
       </tr>
     </thead>
     <tbody>
       <% @songs.each do |song| %>
         <tr>
           <td><%= song.title %></td>
-          <td><%= link_to "View", song.filename_url %></td>
+          <td><%= link_to "View", song.filename_url, class: "btn btn-primary" %></td>
           <td><%= button_to "Delete",  song, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{song.title}?" %></td>
-          <td><%= button_to "Show", song, method: :show, class: "btn btn-primary" %></td>
         </tr>
       <% end %>
     </tbody>

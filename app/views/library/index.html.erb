@@ -1,25 +1,30 @@
 <div class="container">
 
   <h1><%= @user.name %>'s Library</h1>
+  <hr>
 
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Operations</th>
-    </tr>
-
-    <% @user.media.each do |medium| %>
-    <tr>
-      <td>
-        <%= medium.title %>
-      </td>
-      <td>
-        <%= link_to 'Delete', library_path(:medium_id => medium.id) , method: :delete%>
-      </td>
-    </tr>
-    <% end %>
+  <% if !flash[:notice].blank? %>
+    <div class="alert alert-info">
+    <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <br />
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Download Link</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.media.each do |medium| %>
+      <tr>
+        <td><%= medium.title %></td>
+        <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
+        <td><%= button_to "Delete",  medium, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{medium.title}?" %></td>
+      </tr>
+      <% end %>
+    </tbody>
   </table>
-
-  <%= link_to "Upload", new_upload_path, class: "btn btn-primary" %>
-
 </div>

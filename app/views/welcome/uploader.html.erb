@@ -1,0 +1,19 @@
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#videos">Videos</a></li>
+    <li><a data-toggle="tab" href="#music">Music</a></li>
+    <li><a data-toggle="tab" href="#pictures">Pictures</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="videos" class="tab-pane fade in active">
+      <%= render :template => 'videos/new' %>
+    </div>
+    <div id="music" class="tab-pane fade">
+      <%= render :template => 'songs/new' %>
+    </div>
+    <div id="pictures" class="tab-pane fade">
+      <%= render :template => 'images/new' %>
+    </div>
+  </div>
+</div>

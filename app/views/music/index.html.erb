@@ -18,16 +18,14 @@
         <th>Title</th>
         <th>Download Link</th>
         <th>Operations</th>
-        <th>Extra</th>
       </tr>
     </thead>
     <tbody>
       <% @musics.each do |music| %>
         <tr>
           <td><%= music.title %></td>
-          <td><%= link_to "View", music.filename_url %></td>
+          <td><%= link_to "View", music.filename_url, class: "btn btn-primary" %></td>
           <td><%= button_to "Delete",  music, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{music.title}?" %></td>
-          <td><%= button_to "Show", music, method: :show, class: "btn btn-primary" %></td>
         </tr>
       <% end %>
     </tbody>
