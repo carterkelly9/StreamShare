@@ -15,6 +15,13 @@ class WelcomeController < ApplicationController
 
   end
 
+  def uploader
+    @video = Video.new
+    @song = Song.new
+    @image = Image.new
+  end
+
+
   private
 
   def get_session_user
