@@ -15,6 +15,7 @@
         <th>Title</th>
         <th>Download Link</th>
         <th>Operations</th>
+        <th>File Type</th>
       </tr>
     </thead>
     <tbody>
@@ -23,6 +24,7 @@
         <td><%= medium.title %></td>
         <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
         <td><%= button_to "Delete",  medium, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{medium.title}?" %></td>
+        <td><%= medium.type %></td>
       </tr>
       <% end %>
     </tbody>
