@@ -1,0 +1,33 @@
+<div class="container">
+
+  <h1><%= current_user.name %>'s Images Library</h1>
+  <hr>
+
+  <% if !flash[:notice].blank? %>
+    <div class="alert alert-info">
+    <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <br />
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Download Link</th>
+        <th>Operations</th>
+        <th>Extra</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @images.each do |image| %>
+        <tr>
+          <td><%= image.title %></td>
+          <!-- <td><%= link_to "View", image.filename_url %></td> -->
+          <td><%= link_to(image_tag(image.filename.thumb.url, alt: 'Image'), "image.filename.url", target: '_blank') if image.filename? %></td>
+          <td><%= button_to "Delete",  image, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{image.title}?" %></td>
+          <td><%= button_to "Show", image, method: :show, class: "btn btn-primary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

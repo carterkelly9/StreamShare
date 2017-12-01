@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1><%= @user.name %>'s Library</h1>
+  <h1><%= current_user.name %>'s Music Library</h1>
   <hr>
 
   <% if !flash[:notice].blank? %>
@@ -8,6 +8,7 @@
     <%= flash[:notice] %>
     </div>
   <% end %>
+  
   <br />
   <table class="table table-bordered table-striped">
     <thead>
@@ -18,12 +19,12 @@
       </tr>
     </thead>
     <tbody>
-      <% @user.media.each do |medium| %>
-      <tr>
-        <td><%= medium.title %></td>
-        <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
-        <td><%= button_to "Delete",  medium, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{medium.title}?" %></td>
-      </tr>
+      <% @songs.each do |song| %>
+        <tr>
+          <td><%= song.title %></td>
+          <td><%= link_to "View", song.filename_url, class: "btn btn-primary" %></td>
+          <td><%= button_to "Delete",  song, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{song.title}?" %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>
