@@ -14,11 +14,20 @@
  *= require_self
  */
 
+body {
+  font-size: 20px;
+}
+
  .navlinks a {
    float: left;
    display: block;
    text-align: center;
  }
+
+.navbar-brand {
+  padding: 10px 0px;
+}
+
 /*
 .form-control {
   margin-top: 2px;
