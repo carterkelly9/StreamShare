@@ -55,4 +55,12 @@ class UserTest < ActiveSupport::TestCase
   	assert user.valid?
   end
 
+   test "user has media" do
+   	user = User.new(name: 'test', email: 'test@test.com', password: BCrypt::Password.create('testtest', cost: 5))
+   	test1 = Medium.new(title: 'Test1')
+   	test2 = Medium.new(title: 'Test2')
+   	user.media << test1
+   	user.media << test2
+	assert user.media.first.id == test1.id && user.media.second.id == test2.id
+  end
 end
