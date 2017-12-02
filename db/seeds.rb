@@ -8,6 +8,3 @@
 
 u1 = User.create(name: 'Bob', email: 'bob@sfu.ca', password: "bobpassword")
 Admin.create(name: "Joey Bonzoe", email: "jbonzoe@sfu.ca", password: "joeypassword")
-
-m = Medium.create(title: "song1")
-u1.media << m;
