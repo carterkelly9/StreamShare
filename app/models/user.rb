@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 	end
 
  #get list of media shared with user
-	def media_shared_with
+	def shared_media
 		return Medium.find(Share.where(guest_id: id).map(&:medium_id));
 	end
 

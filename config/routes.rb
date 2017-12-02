@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'share' => 'invite#index'
   post 'share/revoke' => 'invite#revoke_share'
   post 'share/revokeall' => 'invite#revoke_all_shares'
+  post 'share/remove' => 'invite#remove_share'
 
   get 'signup' => 'users#new'
   post 'signup' => "users#create"

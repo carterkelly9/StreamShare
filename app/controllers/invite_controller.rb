@@ -17,7 +17,7 @@ class InviteController < ApplicationController
     @shared_users = @medium.shared_users
   end
 
-  #revoke single user from accessing this medium
+  #owner revokes single user from accessing this medium
   def revoke_share
     require_medium
     share = get_share
@@ -77,6 +77,14 @@ class InviteController < ApplicationController
       share = Share.create(owner_id: invite.owner_id, guest_id: @user.id, medium_id: invite.medium_id)
       redirect_to root_path, notice:  "The share #{share.medium.title} has been added to your library."
     end
+  end
+
+  #guest removes a single share
+  def remove_share
+    require_medium
+
+    Share.where(medium_id: params[:medium_id], guest_id: @user.id).destroy_all
+    redirect_to root_path, notice:  "The share #{@medium.title} has been removed from your library."
   end
 
 private

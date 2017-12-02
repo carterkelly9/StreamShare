@@ -32,4 +32,32 @@
       <% end %>
     </tbody>
   </table>
+
+<% if !@user.shared_media.empty? %>
+<h1>Media Shared with <%= @user.name %></h1>
+
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Title</th>
+      <th>Download Link</th>
+      <th>Operations</th>
+      <th>File Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.shared_media.each do |medium| %>
+    <tr>
+      <td><%= medium.title %></td>
+      <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
+      <td>
+        <%= button_to "Remove",  share_remove_path, method: :post, params: {medium_id: medium.id}, class: "btn btn-danger", confirm: "Are you sure that you wish to remove #{medium.title}?" %>
+      </td>
+      <td><%= medium.type %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
 </div>
