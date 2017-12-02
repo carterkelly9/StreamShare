@@ -25,6 +25,14 @@ Rails.application.routes.draw do
 
   get 'uploader' => 'welcome#uploader'
 
+  get 'invite' => 'invite#add_share_by_invite'
+  post 'share/enable' => 'invite#enable_invite'
+  post 'share/disable' => 'invite#disable_invite'
+  get 'share' => 'invite#index'
+  post 'share/revoke' => 'invite#revoke_share'
+  post 'share/revokeall' => 'invite#revoke_all_shares'
+  post 'share/remove' => 'invite#remove_share'
+
   get 'signup' => 'users#new'
   post 'signup' => "users#create"
   resources :users

@@ -9,4 +9,14 @@ class User < ActiveRecord::Base
 	def is_admin
 		return self.type == "Admin"
 	end
+
+ #get list of media shared with user
+	def shared_media
+		return Medium.find(Share.where(guest_id: id).map(&:medium_id));
+	end
+
+	#get list of media shared by user with others
+	def media_shared_by
+		return Medium.find(Share.where(owner_id: id).map(&:medium_id));
+	end
 end
