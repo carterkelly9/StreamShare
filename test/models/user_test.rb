@@ -19,26 +19,40 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'invalid without name' do
+  	user = User.new(email: 'test@test.com', password: BCrypt::Password.create('testtest', cost: 5))
+ 	assert_not user.valid?
   end
 
   test 'invalid without email' do
+  	user = User.new(name: 'test', password: BCrypt::Password.create('testtest', cost: 5))
+  	assert_not user.valid?
   end
 
   test 'invalid without password' do
+  	user = User.new(name: 'test', email: 'test@test.com')
+  	assert_not user.valid?
   end
 
   test 'email is unique' do
    	user = User.new(name: 'test', email: 'test@test.com', password: BCrypt::Password.create('testtest', cost: 5))
    	user.save
-   	user2 = User.new(name: 'test', email: 'test@test.com', password: BCrypt::Password.create('testtest', cost: 5))
+   	user2 = User.new(name: 'test2', email: 'test@test.com', password: BCrypt::Password.create('testtest', cost: 5))
    	assert_not user2.valid?
   end
 
-  test 'password is invalid' do 
+  test 'password is too short' do 
+  	user = User.new(name: 'test', email: 'test@test.com', password: 'test')
+  	assert_not user.valid?
   end
 
-  test 'name is invalid' do
+  test 'invalid email format' do
+  	user = User.new(name: 'test', email: 'test', password: BCrypt::Password.create('testtest', cost: 5))
+  	assert_not user.valid?
   end
 
-  
+  test 'email is case insensitive' do
+  	user = User.new(name: 'test', email: 'TEST@test.COM', password: BCrypt::Password.create('testtest', cost: 5))
+  	assert user.valid?
+  end
+
 end
