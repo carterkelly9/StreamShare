@@ -1,2 +1,0 @@
-class Music < Medium;
-end

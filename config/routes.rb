@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-
   resources :uploads, only: [:index, :new, :create, :destroy]
+
+  resources :videos, only: [:index, :new, :create, :destroy]
+  resources :songs, only: [:index, :new, :create, :destroy]
+  resources :images, only: [:index, :new, :create, :destroy]
+
 
   resources :widgets
 
@@ -18,6 +22,8 @@ Rails.application.routes.draw do
   # post 'library' => 'library#create'
   # delete 'library' => 'library#delete'
   resources :library, only: [:index, :new, :create, :delete]
+
+  get 'uploader' => 'welcome#uploader'
 
   get 'signup' => 'users#new'
   post 'signup' => "users#create"

@@ -1,6 +1,6 @@
 <div class="container">
   <h1><%= @admin.name%>'s Admin Controls</h1>
-  <hr><br>
+  <hr>
   <h2>System User List:</h2>
 
   <% if !flash[:user_operation_notice].blank? %>
@@ -10,7 +10,7 @@
   <% end %>
 
   <table class="table table-bordered table-striped">
-    <thead>
+    <thead class="thead-dark">
       <tr>
         <th>Name</th>
         <th>Email</th>

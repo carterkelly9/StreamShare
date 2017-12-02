@@ -1,0 +1,31 @@
+<div class="container">
+
+  <h1><%= current_user.name %>'s Music Library</h1>
+  <hr>
+
+  <% if !flash[:notice].blank? %>
+    <div class="alert alert-info">
+    <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <br />
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>Download Link</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @songs.each do |song| %>
+        <tr>
+          <td><%= song.title %></td>
+          <td><%= link_to "View", song.filename_url, class: "btn btn-primary" %></td>
+          <td><%= button_to "Delete",  song, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{song.title}?" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -14,11 +14,37 @@
  *= require_self
  */
 
+body {
+  font-size: 20px;
+}
+
  .navlinks a {
    float: left;
    display: block;
    text-align: center;
  }
+
+.navbar-brand {
+  padding: 10px 0px;
+}
+
+.thead-dark {
+  color: #fff;
+  background-color: #413181;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #413181;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+
+a {
+    color: #777;
+    text-decoration: none;
+}
 /*
 .form-control {
   margin-top: 2px;
