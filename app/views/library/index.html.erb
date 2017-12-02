@@ -23,7 +23,10 @@
       <tr>
         <td><%= medium.title %></td>
         <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
-        <td><%= button_to "Delete",  medium, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{medium.title}?" %></td>
+        <td>
+          <%= button_to "Delete",  medium, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{medium.title}?" %>
+          <%= button_to "Share", share_path, method: :get, params: {medium_id: medium.id}, class: "btn btn-info" %>
+        </td>
         <td><%= medium.type %></td>
       </tr>
       <% end %>
