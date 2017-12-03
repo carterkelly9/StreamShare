@@ -1,8 +1,8 @@
 class InviteController < ApplicationController
   before_action :get_session_user
+  before_action :require_medium, except: [:add_share_by_invite, :remove_share]
 
   def index
-    require_medium
     invite = get_medium_invite
 
     #sharing is off
@@ -19,7 +19,6 @@ class InviteController < ApplicationController
 
   #owner revokes single user from accessing this medium
   def revoke_share
-    require_medium
     share = get_share
     share.destroy
 
@@ -28,7 +27,6 @@ class InviteController < ApplicationController
   end
 
   def revoke_all_shares
-    require_medium
     shares = get_all_shares
     shares.destroy_all
 
@@ -36,8 +34,6 @@ class InviteController < ApplicationController
   end
 
   def enable_invite
-    require_medium
-
     invite = get_medium_invite
 
     if !invite
@@ -49,7 +45,6 @@ class InviteController < ApplicationController
   end
 
   def disable_invite
-    require_medium
 
     invite = get_medium_invite
     invite.destroy
@@ -81,16 +76,19 @@ class InviteController < ApplicationController
 
   #guest removes a single share
   def remove_share
-    require_medium
-
-    Share.where(medium_id: params[:medium_id], guest_id: @user.id).destroy_all
-    redirect_to root_path, notice:  "The share #{@medium.title} has been removed from your library."
+    if params[:medium_id]
+      Share.where(medium_id: params[:medium_id], guest_id: @user.id).destroy_all
+      flash[:notice] = "The share #{@medium.title} has been removed from your library."
+    end
+    redirect_to root_path
   end
 
 private
+    #check if medium has been specified, and if you are its owner
     def require_medium
-      if !params[:medium_id]
+      if !params[:medium_id] || !Medium.exists?(params[:medium_id] || Medium.find(params[:medium_id]).user_id != @user.id)
         redirect_to root_path
+        return
       end
       @medium = Medium.find(params[:medium_id])
     end
