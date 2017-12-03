@@ -46,6 +46,7 @@
     <%= flash[:notice] %>
     </div>
   <% end %>
+  <h3>All Files</h3>
   <br />
   <table class="table table-bordered table-striped">
     <thead class="thead-dark">
@@ -60,7 +61,7 @@
       <% current_user.media.each do |medium| %>
       <tr>
         <td><%= medium.title %></td>
-        <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
+        <td><%= link_to "View", medium, class: "btn btn-primary" %></td>
         <td>
           <%= button_to "Delete",  medium, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{medium.title}?"} %>
           <%= button_to "Share", share_path, method: :get, params: {medium_id: medium.id}, class: "btn btn-info" %>
