@@ -23,7 +23,7 @@
         <tr>
           <td><%= song.title %></td>
           <td><%= link_to "View", song.filename_url, class: "btn btn-primary" %></td>
-          <td><%= button_to "Delete",  song, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{song.title}?" %></td>
+          <td><%= button_to "Delete",  song, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{song.title}?"} %></td>
         </tr>
       <% end %>
     </tbody>

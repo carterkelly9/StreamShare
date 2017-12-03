@@ -65,7 +65,7 @@ class InviteController < ApplicationController
 
     #fail: share already exists with this user
     elsif Share.exists?(owner_id: invite.owner_id, guest_id: @user.id, medium_id: invite.medium_id)
-      redirect_to root_path, notice:  "The share #{share.medium.title} is already in your library."
+      redirect_to root_path, notice:  "The share #{invite.medium.title} is already in your library."
 
     #success: invite exists, create share for guest user
     else
@@ -76,9 +76,9 @@ class InviteController < ApplicationController
 
   #guest removes a single share
   def remove_share
-    if params[:medium_id]
+    if params[:medium_id] && Medium.exists?(params[:medium_id])
       Share.where(medium_id: params[:medium_id], guest_id: @user.id).destroy_all
-      flash[:notice] = "The share #{@medium.title} has been removed from your library."
+      flash[:notice] = "The share #{Medium.find(params[:medium_id]).title} has been removed from your library."
     end
     redirect_to root_path
   end
