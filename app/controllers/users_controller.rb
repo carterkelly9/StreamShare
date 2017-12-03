@@ -30,7 +30,7 @@ class UsersController < ApplicationController
      notice = "The user #{user.name} has been deleted."
    end
 
-     redirect_to root_path, user_operation_notice: notice
+     redirect_to admin_path, user_operation_notice: notice
  end
 
  private
