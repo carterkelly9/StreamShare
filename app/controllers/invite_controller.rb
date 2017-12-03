@@ -76,9 +76,9 @@ class InviteController < ApplicationController
 
   #guest removes a single share
   def remove_share
-    if params[:medium_id]
+    if params[:medium_id] && Medium.exists?(params[:medium_id])
       Share.where(medium_id: params[:medium_id], guest_id: @user.id).destroy_all
-      flash[:notice] = "The share #{@medium.title} has been removed from your library."
+      flash[:notice] = "The share #{Medium.find(params[:medium_id]).title} has been removed from your library."
     end
     redirect_to root_path
   end
