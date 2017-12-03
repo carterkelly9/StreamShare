@@ -9,7 +9,7 @@ body {
 h4 {
   color: #261c62;
   font-family: arial;
-  font-size: 200%;
+  font-size: 150%;
   text-align: center;
 }
 
@@ -25,15 +25,15 @@ h4 {
 }
 
 .login_button {
-  background-color: #f8f8f8;
+  background-color: #746ad2;
   border: none;
   border-radius: 8px;
-  color: #5a1798;
+  color: white;
   padding: 3px;
   text-align: center;
-  width: 20%;
+  width: 25%;
   margin-top: 10px;
-  margin-left: 39%;
+  margin-left: 38%;
 }
 
 .signup_window {
@@ -54,27 +54,27 @@ h4 {
   color: white;
   padding: 5px;
   text-align: center;
-  width: 20%;
+  width: 30%;
   margin-top: 10px;
-  margin-left: 40%;
+  margin-left: 35%;
 }
 
 input[type="text"] {
-    margin-left: 30%;
-    width: 40%;
+    margin-left: 20%;
+    width: 60%;
     color: black;
 }
 
 input[type="email"] {
-    margin-left: 30%;
-    width: 40%;
+    margin-left: 20%;
+    width: 60%;
     color: black;
 }
 
 input[type="password"] {
     margin-top: 5px;
-    margin-left: 30%;
-    width: 40%;
+    margin-left: 20%;
+    width: 60%;
     color: black;
 }
 
@@ -102,4 +102,22 @@ input[type="password"] {
   display: block;
   margin: auto;
   width: 50%;
+}
+
+.btn-danger {
+  float: left;
+}
+
+.btn-info {
+  margin-left: 10px;
+}
+
+.purple-button {
+  background-color: #746ad2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  width: 12%;
 }

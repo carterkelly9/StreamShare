@@ -3,9 +3,15 @@
   <h1><%= current_user.name %>'s Library</h1>
   <hr>
 
+  <% if !flash[:notice].blank? %>
+    <div class="alert alert-info">
+    <%= flash[:notice] %>
+    </div>
+  <% end %>
+
   <%= form_tag(library_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search Library" %>
-  <%= submit_tag "Search" %>
+  <%= submit_tag "Search", :class => "purple-button" %>
   <% end %>
 
   <% if @medium.present? %>
@@ -20,8 +26,7 @@
       </tr>
     </thead>
     <tbody>
-      <%# current_user.media.each do |medium| %>
-     <% @medium.each do |medium| %>
+      <% @medium.each do |medium| %>
       <tr>
         <td><%= medium.title %></td>
         <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
@@ -41,12 +46,7 @@
   <% end %>
   <hr>
 
-  <% if !flash[:notice].blank? %>
-    <div class="alert alert-info">
-    <%= flash[:notice] %>
-    </div>
-  <% end %>
-  <br />
+  <h3>All Files</h3>
   <table class="table table-bordered table-striped">
     <thead class="thead-dark">
       <tr>
@@ -72,6 +72,7 @@
   </table>
 
 <% if !current_user.shared_media.empty? %>
+</br>
 <h1>Media Shared with <%= current_user.name %></h1>
 <hr>
 
