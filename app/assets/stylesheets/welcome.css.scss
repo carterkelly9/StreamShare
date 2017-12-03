@@ -25,10 +25,10 @@ h4 {
 }
 
 .login_button {
-  background-color: #f8f8f8;
+  background-color: #746ad2;
   border: none;
   border-radius: 8px;
-  color: #5a1798;
+  color: white;
   padding: 3px;
   text-align: center;
   width: 25%;
@@ -102,4 +102,22 @@ input[type="password"] {
   display: block;
   margin: auto;
   width: 50%;
+}
+
+.btn-danger {
+  float: left;
+}
+
+.btn-info {
+  margin-left: 10px;
+}
+
+.purple-button {
+  background-color: #746ad2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  width: 12%;
 }
