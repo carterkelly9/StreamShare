@@ -3,6 +3,9 @@ class AdminController < ApplicationController
 
   def index
     @users = User.all
+    if !(current_user.is_admin)
+    	redirect_to '/'
+    end
   end
 
   private
