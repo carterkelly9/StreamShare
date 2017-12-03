@@ -4,7 +4,7 @@ class LibraryController < ApplicationController
   def index
     @medium = Medium.all
     if params[:search]
-      @medium = Medium.search(params[:search]).order("created_at DESC")
+      @medium = Medium.search(params[:search]).where(user_id: current_user.id).order("created_at DESC")
     else
       @medium = Medium.all.order('created_at DESC')
     end

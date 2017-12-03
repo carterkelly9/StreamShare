@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1><%= @user.name || @admin.name %>'s Library</h1>
+  <h1><%= current_user.name %>'s Library</h1>
   <hr>
 
   <%= form_tag(library_path, :method => "get", id: "search-form") do %>
@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @user.media.each do |medium| %>
+      <% current_user.media.each do |medium| %>
       <tr>
         <td><%= medium.title %></td>
         <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
@@ -56,7 +56,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @user.media.each do |medium| %>
+      <% current_user.media.each do |medium| %>
       <tr>
         <td><%= medium.title %></td>
         <td><%= link_to "View", medium, class: "btn btn-primary" %></td>
@@ -70,8 +70,8 @@
     </tbody>
   </table>
 
-<% if !@user.shared_media.empty? %>
-<h1>Media Shared with <%= @user.name %></h1>
+<% if !current_user.shared_media.empty? %>
+<h1>Media Shared with <%= current_user.name %></h1>
 <hr>
 
 <table class="table table-bordered table-striped">
@@ -84,7 +84,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @user.shared_media.each do |medium| %>
+    <% current_user.shared_media.each do |medium| %>
     <tr>
       <td><%= medium.title %></td>
       <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
