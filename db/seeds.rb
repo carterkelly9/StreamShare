@@ -7,4 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 u1 = User.create(name: 'Bob', email: 'bob@sfu.ca', password: "bobpassword")
-Admin.create(name: "Joey Bonzoe", email: "jbonzoe@sfu.ca", password: "joeypassword")
+a1 = Admin.create(name: "Joey Bonzoe", email: "jbonzoe@sfu.ca", password: "joeypassword")
+
+m = Song.create(title: "Midnight Rain", user_id: a1.id, filename:Pathname.new("test/upload_files/Turbo Knight - Midnight rain.mp3").open)
+
+Share.create(owner_id: a1.id, guest_id: u1.id, medium_id: m.id)
