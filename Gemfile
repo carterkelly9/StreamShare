@@ -39,5 +39,9 @@ gem 'puma'
 # gem 'debugger', group: [:development, :test]
 
 gem 'carrierwave', '~>1.0'
+
 gem 'carrierwave-video-thumbnailer'
+
 gem 'mini_magick'
+
+gem 'plyr-rails'

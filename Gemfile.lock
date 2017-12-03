@@ -84,6 +84,7 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     pg (0.21.0)
+    plyr-rails (2.0.14)
     puma (3.10.0)
     rack (1.6.8)
     rack-test (0.6.3)
@@ -168,6 +169,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   pg
+  plyr-rails
   puma
   rails (= 4.2.8)
   rails_12factor
