@@ -14,7 +14,7 @@
 
   <div class="well">
     <%= form_for @song, html: { multipart: true } do |f| %>
-      <%= f.label :title, :placeholder => "Title" %>
+      <%= f.label :title, "Title:" %>
       <%= f.text_field :title %><br/>
       <%= f.label :filename, 'File:'%>
       <%= f.file_field :filename %><br/>

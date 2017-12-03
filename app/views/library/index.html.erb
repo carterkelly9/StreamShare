@@ -20,8 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <%# current_user.media.each do |medium| %>
-     <% @medium.each do |medium| %>
+      <% current_user.media.each do |medium| %>
       <tr>
         <td><%= medium.title %></td>
         <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
