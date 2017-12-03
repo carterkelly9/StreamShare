@@ -3,6 +3,43 @@
   <h1><%= @user.name %>'s Library</h1>
   <hr>
 
+  <%= form_tag(library_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Library" %>
+  <%= submit_tag "Search" %>
+  <% end %>
+
+  <% if @medium.present? %>
+  <h3>Search Results</h3>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>Download Link</th>
+        <th>Operations</th>
+        <th>File Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.media.each do |medium| %>
+      <tr>
+        <td><%= medium.title %></td>
+        <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
+        <td>
+          <%= button_to "Delete", medium, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{medium.title}?" %>
+          <%= button_to "Share", share_path, method: :get, params: {medium_id: medium.id}, class: "btn btn-info" %>
+        </td>
+        <td><%= medium.type %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+    <% if params[:search].present? %>
+      </br> <p>There are no files containing the word(s) <%= params[:search] %>.</p>
+    <% end %>
+  <% end %>
+  <hr>
+
   <% if !flash[:notice].blank? %>
     <div class="alert alert-info">
     <%= flash[:notice] %>
@@ -22,9 +59,9 @@
       <% @user.media.each do |medium| %>
       <tr>
         <td><%= medium.title %></td>
-        <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
+        <td><%= link_to "View", medium, class: "btn btn-primary" %></td>
         <td>
-          <%= button_to "Delete",  medium, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{medium.title}?" %>
+          <%= button_to "Delete",  medium.filename_url, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{medium.title}?" %>
           <%= button_to "Share", share_path, method: :get, params: {medium_id: medium.id}, class: "btn btn-info" %>
         </td>
         <td><%= medium.type %></td>
@@ -35,6 +72,7 @@
 
 <% if !@user.shared_media.empty? %>
 <h1>Media Shared with <%= @user.name %></h1>
+<hr>
 
 <table class="table table-bordered table-striped">
   <thead class="thead-dark">

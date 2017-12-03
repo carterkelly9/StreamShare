@@ -10,6 +10,10 @@ class Medium < ActiveRecord::Base
     return User.find(shares.map(&:guest_id))
   end
 
+  def self.search(search)
+    where("title ILIKE ?", "%#{search}%")
+  end
+
   private
   def delete_shares_and_invites
     Share.where(medium_id: id).destroy_all
