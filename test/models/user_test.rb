@@ -10,7 +10,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "User is not an Admin" do
-      assert_not Admin.exists?(users(:user))
+      assert_not Admin.exists?(users(:sUser))
   end
 
   test 'valid user' do
@@ -63,4 +63,19 @@ class UserTest < ActiveSupport::TestCase
    	user.media << test2
 	assert user.media.first.id == test1.id && user.media.second.id == test2.id
   end
+
+  test "deleting user will remove associated media" do
+    subject = users(:sUser)
+    file =  media(:mOne)
+    assert subject.destroy
+    assert_raise(ActiveRecord::RecordNotFound) {file.reload}
+  end
+
+  test "deleting user will remove associated uploads" do
+    subject = users(:sUser)
+    file = uploads(:uOne)
+    assert subject.destroy
+    assert_raise(ActiveRecord::RecordNotFound) {file.reload}
+  end
+
 end
