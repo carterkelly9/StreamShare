@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1><%= current_user.name %>'s Photo Library</h1>
+  <h1><%= current_user.name %>'s Image Library</h1>
   <hr>
 
   <% if !flash[:notice].blank? %>
@@ -24,7 +24,11 @@
           <td><%= image.title %></td>
           <!-- <td><%= link_to "View", image.filename_url %></td> -->
           <td><%= link_to(image_tag(image.filename.thumb.url, alt: 'Image'), image.filename.url, target: '_blank') if image.filename? %></td>
+<<<<<<< HEAD
+          <td><%= button_to "Delete", image, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{image.title}?" %></td>
+=======
           <td><%= button_to "Delete",  image, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{image.title}?"} %></td>
+>>>>>>> 3ebb5019be543c3fd296759878e6804391d3c1d2
           <td><%= button_to "Show", image, method: :show, class: "btn btn-primary" %></td>
         </tr>
       <% end %>

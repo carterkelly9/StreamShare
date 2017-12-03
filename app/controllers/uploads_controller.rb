@@ -23,7 +23,7 @@ class UploadsController < ApplicationController
   def destroy
     @upload = Upload.find(params[:id])
     @upload.destroy
-    redirect_to root_path, notice:  "The file #{@upload.title} has been deleted."
+    redirect_to root_path, notice: "The file #{@upload.title} has been deleted."
   end
 
 private

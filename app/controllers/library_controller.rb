@@ -2,7 +2,12 @@ class LibraryController < ApplicationController
   before_action :get_session_user
 
   def index
-    
+    @medium = Medium.all
+    if params[:search]
+      @medium = Medium.search(params[:search]).order("created_at DESC")
+    else
+      @medium = Medium.all.order('created_at DESC')
+    end
   end
 
   def new
