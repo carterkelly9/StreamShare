@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require plyr
+
+$(document).on("turbolinks:load", function() {
+    plyr.setup();
+  });
