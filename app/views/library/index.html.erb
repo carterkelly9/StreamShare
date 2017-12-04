@@ -10,7 +10,7 @@
   <% end %>
   <% if !current_user.media.empty? %>
   <%= form_tag(library_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Library" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Library by Title" %>
   <%= submit_tag "Search", :class => "purple-button" %>
   <% end %>
   <% end %>
