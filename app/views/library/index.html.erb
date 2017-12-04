@@ -22,7 +22,7 @@
       <thead class="thead-dark">
         <tr>
           <th>Title</th>
-          <th>Download Link</th>
+          <th>View</th>
           <th>Operations</th>
           <th>File Type</th>
         </tr>
@@ -31,7 +31,7 @@
         <% @medium.each do |medium| %>
           <tr>
             <td><%= medium.title %></td>
-            <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
+            <td><%= link_to "View", medium, action: :show, class: "btn btn-primary" %></td>
             <td>
               <%= button_to "Delete", medium, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{medium.title}?"} %>
               <%= button_to "Share", share_path, method: :get, params: {medium_id: medium.id}, class: "btn btn-info" %>
@@ -57,7 +57,7 @@
     <thead class="thead-dark">
       <tr>
         <th>Title</th>
-        <th>Download Link</th>
+        <th>View</th>
         <th>Operations</th>
         <th>File Type</th>
       </tr>
@@ -67,7 +67,7 @@
       <% current_user.media.each do |medium| %>
         <tr>
           <td><%= medium.title %></td>
-          <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
+          <td><%= link_to "View", medium, action: :show, class: "btn btn-primary" %></td>
           <td>
             <%= button_to "Delete",  medium, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{medium.title}?"} %>
             <%= button_to "Share", share_path, method: :get, params: {medium_id: medium.id}, class: "btn btn-info" %>
@@ -91,7 +91,7 @@
       <thead class="thead-dark">
         <tr>
           <th>Title</th>
-          <th>Download Link</th>
+          <th>View</th>
           <th>Operations</th>
           <th>File Type</th>
         </tr>
@@ -100,7 +100,7 @@
         <% current_user.shared_media.each do |medium| %>
         <tr>
           <td><%= medium.title %></td>
-          <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
+          <td><%= link_to "View", medium, action: :show, class: "btn btn-primary" %></td>
           <td>
             <%= button_to "Remove",  share_remove_path, method: :post, params: {medium_id: medium.id}, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to remove #{medium.title}?"} %>
           </td>
