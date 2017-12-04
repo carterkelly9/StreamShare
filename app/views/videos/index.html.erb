@@ -15,19 +15,49 @@
         <th>Title</th>
         <th>Download Link</th>
         <th>Operations</th>
-        <!-- <th>Extra</th> -->
       </tr>
     </thead>
     <tbody>
       <% @videos.each do |video| %>
         <tr>
           <td><%= video.title %></td>
-          <!-- <td><%= link_to "View", video.filename_url %></td> -->
           <td><%= link_to "View", video, action: :show, class: "btn btn-primary" %></td>
           <td><%= button_to "Delete",  video, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{video.title}?"} %></td>
-          <!-- <td><%= button_to "Show", video, method: :show, class: "btn btn-primary" %></td> -->
         </tr>
       <% end %>
     </tbody>
   </table>
+
+  <h1>Videos Shared with <%= current_user.name %></h1>
+  <hr>
+
+  <% if current_user.shared_media.empty? %>
+    <p> No shared media by others. Get a link from other users or check your social media. </p>
+  <% else%>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Title</th>
+            <th>Download Link</th>
+            <th>Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_user.shared_media.each do |medium| %>
+            <% if medium.type == "Video" %>
+              <tr>
+                <td><%= medium.title %></td>
+                <td><%= link_to "View", medium, action: :show, class: "btn btn-primary" %></td>
+                <td>
+                  <%= button_to "Remove",  share_remove_path, method: :post, params: {medium_id: medium.id}, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to remove #{medium.title}?"} %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+  <% end %>
+
+
+
 </div>

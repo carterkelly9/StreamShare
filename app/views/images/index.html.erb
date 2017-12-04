@@ -9,28 +9,38 @@
     </div>
   <% end %>
   <br />
-  <!-- <table class="table table-bordered table-striped">
-    <thead class="thead-dark">
-      <tr>
-        <th>Title</th>
-        <th>Download Link</th>
-        <th>Operations</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @images.each do |image| %>
+
+  <% @images.each do |image| %>
+    <%= link_to(image_tag(image.filename.thumb.url, alt: 'Image'), image, action: :show) if image.filename? %>
+  <% end %>
+
+  <h1>Songs Shared with <%= current_user.name %></h1>
+  <hr>
+
+  <% if current_user.shared_media.empty? %>
+    <p> No shared media by others. Get a link from other users or check your social media. </p>
+  <% else%>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
         <tr>
-          <td><%= image.title %></td>
-          <td><%= link_to(image_tag(image.filename.thumb.url, alt: 'Image'), image.filename.url, target: '_blank') if image.filename? %></td>
-          <td><%= button_to "Delete",  image, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{image.title}?"} %></td>
+          <th>Title</th>
+          <th>Download Link</th>
+          <th>Operations</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table> -->
-
-    <% @images.each do |image| %>
-      <%= link_to(image_tag(image.filename.thumb.url, alt: 'Image'), image, action: :show) if image.filename? %>
-    <% end %>
-
-
+      </thead>
+      <tbody>
+        <% current_user.shared_media.each do |medium| %>
+          <% if medium.type == "Image" %>
+            <tr>
+              <td><%= medium.title %></td>
+              <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
+              <td>
+                <%= button_to "Remove",  share_remove_path, method: :post, params: {medium_id: medium.id}, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to remove #{medium.title}?"} %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 </div>
