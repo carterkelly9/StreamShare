@@ -21,3 +21,5 @@ module RubyGettingStarted
     # config.i18n.default_locale = :de
   end
 end
+
+ RSpotify::authenticate("b40d6ac2a04d41069deddaf5a88f9794", "7cdaa55907b949f68f7b415683ce860f")
