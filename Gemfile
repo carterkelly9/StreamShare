@@ -45,3 +45,5 @@ gem 'carrierwave-video-thumbnailer'
 gem 'mini_magick'
 
 gem 'plyr-rails'
+
+gem 'social-share-button'
