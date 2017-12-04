@@ -13,7 +13,18 @@
  *= require_tree .
  *= require_self
  *= require plyr
+ *= require social-share-button
  */
+
+
+ $size: 35px;
+ .social-share-button {
+   .ssb-icon {
+     background-size: $size $size !important;
+     height: $size !important;
+     width: $size !important;
+   }
+ }
 
 body {
   font-size: 20px;

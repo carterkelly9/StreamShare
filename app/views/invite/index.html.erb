@@ -11,7 +11,16 @@
 <% if @invite_enabled %>
 Sharing by invite is enabled. You can invite someone to access your media by sharing the following link with them:
 <br>
-<%=@invite_url%>
+
+<h3>
+  <span class="label label-default">
+  <%=@invite_url%>
+  </span>
+</h3>
+
+Share your link:
+<% sm_message = "Add my share of " + @medium.title + " to your account on StreamShare! \n" %>
+<%= social_share_button_tag(sm_message, :url => @invite_url, desc: sm_message) %>
 
 <%= button_to "Disable Invites", share_disable_path, method: :post, params: {medium_id: @medium.id}, class: "btn btn-danger" %>
 <% else %>
@@ -19,8 +28,10 @@ Sharing by invite is disabled.
 <br>
 <%= button_to "Enable Invites", share_enable_path, method: :post, params: {medium_id: @medium.id}, class: "btn btn-success" %>
 <% end %>
+</div>
 
-
+<br>
+<div class="container">
 <h2>Users Shared With:</h2>
 <table class="table table-bordered table-striped">
   <thead class="thead-dark">
