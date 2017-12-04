@@ -23,7 +23,8 @@
       <% @songs.each do |song| %>
         <tr>
           <td><%= song.title %></td>
-          <td><%= audio_tag(song.filename_url) %>
+          <!-- <td><%= audio_tag(song.filename_url) %> -->
+          <td><%= link_to "Listen", song, action: :show, class: "btn btn-primary" %></td>
           <td><%= link_to "Download", song.filename_url, class: "btn btn-primary" %></td>
           <td><%= button_to "Delete",  song, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{song.title}?"} %></td>
           </td>
