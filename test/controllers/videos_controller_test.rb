@@ -1,29 +1,37 @@
 require 'test_helper'
 
 class VideosControllerTest < ActionController::TestCase
-  test "should get index" do
+  def setup
+    @currUser = users(:sUser)
+    session[:user_id] = @currUser.id
+    @title = "test video"
+     @attachment_file = fixture_file_upload('ROR-MVC.mp4', 'video/mp4', :binary)
+    @upload_file = Video.create(title: @title, filename: @attachment_file)
+    @currUser.media << @upload_file
+  end
+  test "viewing video index" do
     get :index
-    assert_response :success
+    assert_select "h1", "#{@currUser.name}\'s Video Library"
   end
 
-  test "should get new" do
+  test "uploading new video" do
     get :new
-    assert_response :success
+    assert_select "h1", "Upload Video"
   end
 
-  test "should get create" do
-    get :create
-    assert_response :success
+# #?????
+#   test "uploading video successfully" do
+#     post :create, {:video => {title: @title, filename: @attachment_file}}
+#     assert_select "h1", "#{@currUser.name}\'s Library"
+#   end
+# #?????
+#   test "uploading video failed" do
+#     post :create, {video: {title: @title}}
+#     assert_select "h1", "Upload Video"
+#   end
+# #?????
+  test "deleting video successfully" do
+      delete :destroy, id: @upload_file
+      assert_redirected_to root_path
   end
-
-  test "should get show" do
-    get :show
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get :destroy
-    assert_response :success
-  end
-
 end

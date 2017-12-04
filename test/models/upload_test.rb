@@ -31,4 +31,15 @@ def setup
   	file = Upload.create(title: "test", :attachment => @attachment_file)
   	assert(File.exists?(file.reload.attachment.file.path))
   end
+ 
+  test 'upload failed wrong extension' do
+    uploadFail = Video.new(title: "testFail", :filename => @attachment_file)
+    uploadFail.save
+    assert_not Video.find_by(title: "testFail")
+
+  end
+
+  test 'upload pass correct extension' do
+  end
+  
 end
