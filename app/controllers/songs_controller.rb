@@ -23,7 +23,7 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
-    @art_url = get_song_art(@song.title)
+    @song_data = get_song_data(@song.title)
   end
 
   def destroy
@@ -44,12 +44,12 @@ private
     params.require(:song).permit(:title, :filename)
   end
 
-  def get_song_art(title)
+  def get_song_data(title)
     song = RSpotify::Track.search(title).first
     if song
-      return song.album.images.first["url"]
+      return {art_url: song.album.images.first["url"], title: song.name ,artist: song.artists.first.name, album: song.album.name, spotify_url: song.external_urls['spotify']}
     else
-      return ""
+      return null
     end
 
   end
