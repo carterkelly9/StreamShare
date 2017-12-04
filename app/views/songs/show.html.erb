@@ -8,6 +8,7 @@
       <% end %>
     </div>
 
+    <%= @song_data[:title]%>
     <%= @song_data[:artist]%>
     <%= @song_data[:album]%>
     <%= link_to "Find on Spotify", @song_data[:spotify_url], class:"btn btn-success"%>
