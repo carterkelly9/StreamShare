@@ -34,8 +34,11 @@ class UsersController < ApplicationController
  end
 
  def profile
-  session[:id] = current_user.id
-  @user = User.find_by_email(current_user.email)
+    if session[:user_id]
+      @user = User.find_by_email(current_user.email)
+    else
+      redirect_to login_path
+  end
  end
 
  private
