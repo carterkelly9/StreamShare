@@ -1,15 +1,15 @@
 <div class="container">
   <h1><%= current_user.name%>'s Profile</h1>
   <hr>
-  <h2>Member since: <%= current_user.created_at.strftime("%B %d,%Y") %> </h2>
+  <h2>Member since: <%= current_user.created_at.strftime("%B %d, %Y") %> </h2>
 
   <table class="table table-bordered table-striped">
     <thead class="thead-dark">
       <tr>
         <th>Name</th>
         <th>Email</th>
-        <th>Total media in the library</th>
-        <th>Total media shared With <%= current_user.name %> </th>
+        <th>Total Media in Library</th>
+        <th>Total Media Shared With <%= current_user.name %> </th>
       </tr>
     </thead>
 
