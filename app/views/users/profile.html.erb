@@ -1,0 +1,32 @@
+<div class="container">
+  <h1><%= current_user.name%>'s Profile</h1>
+  <hr>
+  <h2>Member since: <%= current_user.created_at %> </h2>
+
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Total media in the library</th>
+        <th>Total media shared With <%= current_user.name %> </th>
+      </tr>
+    </thead>
+
+    <tr>
+      <td>
+        <%= @user.name %>
+      </td>
+      <td>
+        <%= @user.email %>
+      </td>
+      <td>
+        <%= @user.media.count %>
+      </td>
+      <td>
+        <% totalShare = Share.where(:guest_id => @user.id).count(:guest_id) %>
+        <%= totalShare %>
+      </td>
+    </tr>
+  </table>
+</div>
