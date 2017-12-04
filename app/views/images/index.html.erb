@@ -14,7 +14,7 @@
     <%= link_to(image_tag(image.filename.url, alt: 'Image', :class =>"imgthumb"), image, action: :show) if image.filename? %>
   <% end %>
 
-  <h1>Songs Shared with <%= current_user.name %></h1>
+  <h1>Images Shared with <%= current_user.name %></h1>
   <hr>
 
   <% if current_user.shared_media.empty? %>
