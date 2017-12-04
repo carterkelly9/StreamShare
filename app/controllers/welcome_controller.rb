@@ -9,7 +9,18 @@ class WelcomeController < ApplicationController
       @users = User.all - [@user]
     end
     @uploads = @user.uploads
+    # @videos = @user.videos
+    # @images = @user.images
+    # @songs = @user.songs
+
   end
+
+  def uploader
+    @video = Video.new
+    @song = Song.new
+    @image = Image.new
+  end
+
 
   private
 

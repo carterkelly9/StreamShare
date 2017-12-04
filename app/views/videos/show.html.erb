@@ -1,0 +1,5 @@
+<div class="container">
+  <h1><%= @video.title %></h1>
+  <hr>
+  <%= video_tag(@video.filename.url, alt: '@video.title')%>
+</div>

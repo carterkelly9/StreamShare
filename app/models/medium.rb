@@ -1,6 +1,22 @@
 class Medium < ActiveRecord::Base
-  belongs_to :user
+  before_destroy :delete_shares_and_invites
 
-  mount_uploader :media, MediaUploader
-  validates :title, presence: true
+  belongs_to :user
+  has_one :upload
+
+  #users this medium is shared with
+  def shared_users
+    shares = Share.where(owner_id: self.user_id, medium_id: self.id)
+    return User.find(shares.map(&:guest_id))
+  end
+
+  def self.search(search)
+    where("title ILIKE ?", "%#{search}%")
+  end
+
+  private
+  def delete_shares_and_invites
+    Share.where(medium_id: id).destroy_all
+    Invite.where(medium_id: id).destroy_all
+  end
 end

@@ -1,0 +1,33 @@
+<div class="container">
+
+  <h1><%= current_user.name %>'s Video Library</h1>
+  <hr>
+
+  <% if !flash[:notice].blank? %>
+    <div class="alert alert-info">
+    <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <br />
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>Download Link</th>
+        <th>Operations</th>
+        <!-- <th>Extra</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <% @videos.each do |video| %>
+        <tr>
+          <td><%= video.title %></td>
+          <!-- <td><%= link_to "View", video.filename_url %></td> -->
+          <td><%= link_to "View", video, action: :show, class: "btn btn-primary" %></td>
+          <td><%= button_to "Delete",  video, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{video.title}?"} %></td>
+          <!-- <td><%= button_to "Show", video, method: :show, class: "btn btn-primary" %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,5 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+mOne:
   title: Song2
   type: 
+  user: sUser
+
+mTwo:
+  title: Song2
+  type: 
+  user: sUser
+
+mThree:
+  title: Song2
+  type:
+  user: sUser1

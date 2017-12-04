@@ -30,7 +30,15 @@ class UsersController < ApplicationController
      notice = "The user #{user.name} has been deleted."
    end
 
-     redirect_to root_path, user_operation_notice: notice
+     redirect_to admin_path, user_operation_notice: notice
+ end
+
+ def profile
+    if session[:user_id]
+      @user = User.find_by_email(current_user.email)
+    else
+      redirect_to login_path
+  end
  end
 
  private

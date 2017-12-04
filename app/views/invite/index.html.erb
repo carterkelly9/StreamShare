@@ -1,0 +1,57 @@
+<div class="container">
+
+<h1>Sharing <%=@medium.title%></h1>
+
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if @invite_enabled %>
+Sharing by invite is enabled. You can invite someone to access your media by sharing the following link with them:
+<br>
+
+<h3>
+  <span class="label label-default">
+  <%=@invite_url%>
+  </span>
+</h3>
+
+Share your link:
+<% sm_message = "Add my share of " + @medium.title + " to your account on StreamShare! \n" %>
+<%= social_share_button_tag(sm_message, :url => @invite_url, desc: sm_message) %>
+
+<%= button_to "Disable Invites", share_disable_path, method: :post, params: {medium_id: @medium.id}, class: "btn btn-danger" %>
+<% else %>
+Sharing by invite is disabled.
+<br>
+<%= button_to "Enable Invites", share_enable_path, method: :post, params: {medium_id: @medium.id}, class: "btn btn-success" %>
+<% end %>
+</div>
+
+<br>
+<div class="container">
+<h2>Users Shared With:</h2>
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shared_users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td>
+          <%= button_to "Revoke", share_revoke_path, method: :post, params: {medium_id: @medium.id, guest_id: user.id}, class: "btn btn-danger" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= button_to "Revoke All Users", share_revokeall_path, method: :post, params: {medium_id: @medium.id}, class: "btn btn-danger" %>
+
+</div>

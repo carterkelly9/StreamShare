@@ -7,7 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 u1 = User.create(name: 'Bob', email: 'bob@sfu.ca', password: "bobpassword")
-Admin.create(name: "Joey Bonzoe", email: "jbonzoe@sfu.ca", password: "joeypassword")
+a1 = Admin.create(name: "Joey Bonzoe", email: "jbonzoe@sfu.ca", password: "joeypassword")
 
-m = Medium.create(title: "song1")
-u1.media << m;
+m = Song.create(title: "Midnight Rain - Turbo Knight", user_id: a1.id, filename:Pathname.new("test/upload_files/Turbo Knight - Midnight rain.mp3").open)
+m2 = Video.create(title: "ROR-MVC", user_id: a1.id, filename:Pathname.new("test/fixtures/ROR-MVC.mp4").open)
+
+Share.create(owner_id: a1.id, guest_id: u1.id, medium_id: m.id)
+Share.create(owner_id: a1.id, guest_id: u1.id, medium_id: m2.id)

@@ -4,7 +4,7 @@ ruby '2.2.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.18'
 gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.3'
@@ -39,3 +39,13 @@ gem 'puma'
 # gem 'debugger', group: [:development, :test]
 
 gem 'carrierwave', '~>1.0'
+
+gem 'carrierwave-video-thumbnailer'
+
+gem 'mini_magick'
+
+gem 'plyr-rails'
+
+gem 'social-share-button'
+
+gem 'rspotify'

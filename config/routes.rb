@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-
   resources :uploads, only: [:index, :new, :create, :destroy]
+
+  resources :videos, only: [:index, :new, :create, :show, :destroy]
+  resources :songs, only: [:index, :new, :create, :show, :destroy]
+  resources :images, only: [:index, :new, :create, :show, :destroy]
+
 
   resources :widgets
 
@@ -19,8 +23,19 @@ Rails.application.routes.draw do
   # delete 'library' => 'library#delete'
   resources :library, only: [:index, :new, :create, :delete]
 
+  get 'uploader' => 'welcome#uploader'
+
+  get 'invite' => 'invite#add_share_by_invite'
+  post 'share/enable' => 'invite#enable_invite'
+  post 'share/disable' => 'invite#disable_invite'
+  get 'share' => 'invite#index'
+  post 'share/revoke' => 'invite#revoke_share'
+  post 'share/revokeall' => 'invite#revoke_all_shares'
+  post 'share/remove' => 'invite#remove_share'
+
   get 'signup' => 'users#new'
   post 'signup' => "users#create"
+  get 'profile' => 'users#profile'
   resources :users
 
   get 'login' => 'sessions#new'

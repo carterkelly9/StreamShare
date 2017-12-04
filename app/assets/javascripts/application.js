@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require plyr
+//= require social-share-button
+
+$(document).on("turbolinks:load", function() {
+    plyr.setup();
+  });
