@@ -18,7 +18,6 @@ class ImagesControllerTest < ActionController::TestCase
     get :new
     assert_select "h1", "Upload Image"
   end
-
 # #?????
 #   test "uploading image successfully" do
 #     post :create, {:image => {title: @title, filename: @attachment_file}}

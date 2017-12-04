@@ -18,7 +18,6 @@ class VideosControllerTest < ActionController::TestCase
     get :new
     assert_select "h1", "Upload Video"
   end
-
 # #?????
 #   test "uploading video successfully" do
 #     post :create, {:video => {title: @title, filename: @attachment_file}}

@@ -18,7 +18,6 @@ class SongsControllerTest < ActionController::TestCase
     get :new
     assert_select "h1", "Upload Music"
   end
-
 # #?????
 #   test "uploading song successfully" do
 #     post :create, {:song => {title: @title, filename: @attachment_file}}
