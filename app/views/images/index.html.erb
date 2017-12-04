@@ -11,7 +11,7 @@
   <br />
 
   <% @images.each do |image| %>
-    <%= link_to(image_tag(image.filename.thumb.url, alt: 'Image'), image, action: :show) if image.filename? %>
+    <%= link_to(image_tag(image.filename.url, alt: 'Image', :class =>"imgthumb"), image, action: :show) if image.filename? %>
   <% end %>
 
   <h1>Songs Shared with <%= current_user.name %></h1>
