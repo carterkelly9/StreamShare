@@ -15,7 +15,7 @@
         <th>Title</th>
         <th>Download Link</th>
         <th>Operations</th>
-        <th>Extra</th>
+        <!-- <th>Extra</th> -->
       </tr>
     </thead>
     <tbody>
@@ -23,9 +23,9 @@
         <tr>
           <td><%= video.title %></td>
           <!-- <td><%= link_to "View", video.filename_url %></td> -->
-          <td><%= link_to(image_tag(video.filename.thumb.url, alt: 'Image'), "video.filename.url", target: '_blank') if video.filename? %></td>
-          <td><%= button_to "Delete",  video, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{video.title}?" %></td>
-          <td><%= button_to "Show", video, method: :show, class: "btn btn-primary" %></td>
+          <td><%= link_to "View", video, action: :show, class: "btn btn-primary" %></td>
+          <td><%= button_to "Delete",  video, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{video.title}?"} %></td>
+          <!-- <td><%= button_to "Show", video, method: :show, class: "btn btn-primary" %></td> -->
         </tr>
       <% end %>
     </tbody>

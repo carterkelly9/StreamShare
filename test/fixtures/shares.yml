@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  owner_id: MyString
-  guest_id: MyString
+sOne:
+  owner_id: sUser1.id
+  guest_id: sUser.id
+  medium_id: mOne.id
 
-two:
-  owner_id: MyString
-  guest_id: MyString
+sTwo:
+  owner_id: sUser1.id
+  guest_id: sUser.id
+  medium_id: mTwo.id

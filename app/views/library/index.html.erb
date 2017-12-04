@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1><%= @user.name %>'s Library</h1>
+  <h1><%= current_user.name %>'s Library</h1>
   <hr>
 
   <% if !flash[:notice].blank? %>
@@ -8,7 +8,14 @@
     <%= flash[:notice] %>
     </div>
   <% end %>
-  <br />
+
+  <%= form_tag(library_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Library" %>
+  <%= submit_tag "Search", :class => "purple-button" %>
+  <% end %>
+
+  <% if @medium.present? %>
+  <h3>Search Results</h3>
   <table class="table table-bordered table-striped">
     <thead class="thead-dark">
       <tr>
@@ -19,12 +26,43 @@
       </tr>
     </thead>
     <tbody>
-      <% @user.media.each do |medium| %>
+      <% @medium.each do |medium| %>
       <tr>
         <td><%= medium.title %></td>
         <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
         <td>
-          <%= button_to "Delete",  medium, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{medium.title}?" %>
+          <%= button_to "Delete", medium, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{medium.title}?"} %>
+          <%= button_to "Share", share_path, method: :get, params: {medium_id: medium.id}, class: "btn btn-info" %>
+        </td>
+        <td><%= medium.type %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+    <% if params[:search].present? %>
+      </br> <p>There are no files containing the word(s) <%= params[:search] %>.</p>
+    <% end %>
+  <% end %>
+  <hr>
+
+  <h3>All Files</h3>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>Download Link</th>
+        <th>Operations</th>
+        <th>File Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.media.each do |medium| %>
+      <tr>
+        <td><%= medium.title %></td>
+        <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
+        <td>
+          <%= button_to "Delete",  medium, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{medium.title}?"} %>
           <%= button_to "Share", share_path, method: :get, params: {medium_id: medium.id}, class: "btn btn-info" %>
         </td>
         <td><%= medium.type %></td>
@@ -33,8 +71,10 @@
     </tbody>
   </table>
 
-<% if !@user.shared_media.empty? %>
-<h1>Media Shared with <%= @user.name %></h1>
+<% if !current_user.shared_media.empty? %>
+</br>
+<h1>Media Shared with <%= current_user.name %></h1>
+<hr>
 
 <table class="table table-bordered table-striped">
   <thead class="thead-dark">
@@ -46,12 +86,12 @@
     </tr>
   </thead>
   <tbody>
-    <% @user.shared_media.each do |medium| %>
+    <% current_user.shared_media.each do |medium| %>
     <tr>
       <td><%= medium.title %></td>
       <td><%= link_to "View", medium.filename_url, class: "btn btn-primary" %></td>
       <td>
-        <%= button_to "Remove",  share_remove_path, method: :post, params: {medium_id: medium.id}, class: "btn btn-danger", confirm: "Are you sure that you wish to remove #{medium.title}?" %>
+        <%= button_to "Remove",  share_remove_path, method: :post, params: {medium_id: medium.id}, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to remove #{medium.title}?"} %>
       </td>
       <td><%= medium.type %></td>
     </tr>

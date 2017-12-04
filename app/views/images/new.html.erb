@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Upload Photo</h1>
+  <h1>Upload Image</h1>
   <hr>
 
   <% if !@image.errors.empty? %>
@@ -14,7 +14,7 @@
 
   <div class="well">
     <%= form_for @image, html: { multipart: true } do |f| %>
-      <%= f.label :title, :placeholder => "Title" %>
+      <%= f.label :title, "Title:" %>
       <%= f.text_field :title %> <br/>
       <%= f.label :filename, 'File:' %>
       <%= f.file_field :filename %> <br/>

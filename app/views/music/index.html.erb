@@ -18,6 +18,7 @@
         <th>Title</th>
         <th>Download Link</th>
         <th>Operations</th>
+        <th>Listen</th>
       </tr>
     </thead>
     <tbody>
@@ -25,7 +26,11 @@
         <tr>
           <td><%= music.title %></td>
           <td><%= link_to "View", music.filename_url, class: "btn btn-primary" %></td>
-          <td><%= button_to "Delete",  music, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{music.title}?" %></td>
+          <td><%= button_to "Delete",  music, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{music.title}?"} %></td>
+          <td><audio controls>
+              <source src="/public/uploads/song/23/09 - Who_Gon_Stop-Me.flac" type="audio/flac">
+              </audio>
+          </td>
         </tr>
       <% end %>
     </tbody>

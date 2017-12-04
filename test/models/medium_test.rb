@@ -5,10 +5,12 @@ class MediumTest < ActiveSupport::TestCase
   #   assert true
   # end
   test "Medium belongs to User" do
-    m = media(:one)
-    u = users(:user)
-    u.media << m
+  	m = media(:mOne)
+  	u = users(:sUser)
+  	u.media << m
 
-    assert u.media.first.id == m.id
+  	assert u.media.first.id == m.id
   end
+
 end
+

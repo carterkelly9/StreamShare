@@ -3,7 +3,7 @@
     <img class="logo" src="<%= asset_path( 'sswhite.png' ) %>">
 
     <div class="signup_window">
-      <h4>Sign up!</h4>
+      <h4>Sign Up</h4>
       <%= form_for(:user, url: signup_path, html: {autocomplete: "on"}) do |f| %>
       <% if @user.errors.any? %>
       <div id="error_explanation">
@@ -24,5 +24,3 @@
       </div>
     </div>
   </div>
-
-

@@ -20,6 +20,7 @@
     </thead>
 
     <% @users.each do |user| %>
+    <% if user != current_user %>
     <tr>
       <td>
         <%= user.name %>
@@ -30,8 +31,9 @@
       <td>
         <%= (user.type.nil?) ? "User" : user.type %>
       </td>
-      <td><%= link_to "Delete", user_path(id: user.id), method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{user.name}?" %></td>
+      <td><%= link_to "Delete", user_path(id: user.id), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{user.name}?"} %></td>
     </tr>
+    <% end %>
     <% end %>
   </table>
 </div>

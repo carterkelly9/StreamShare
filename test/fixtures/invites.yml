@@ -2,8 +2,8 @@
 
 one:
   owner_id: MyString
-  share_id: MyString
+  medium_id: MyString
 
 two:
   owner_id: MyString
-  share_id: MyString
+  medium_id: MyString
