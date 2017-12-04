@@ -3,10 +3,14 @@
   <hr>
   <div class="row">
     <div class="col-sm-3">
-      <% if @art_url && @art_url != ""%>
-        <%= image_tag @art_url , class:"album_art thumbnail"%>
+      <% if @song_data%>
+        <%= image_tag @song_data[:art_url] , class:"album_art thumbnail"%>
       <% end %>
     </div>
+
+    <%= @song_data[:artist]%>
+    <%= @song_data[:album]%>
+    <%= link_to "Find on Spotify", @song_data[:spotify_url], class:"btn btn-success"%>
 
     <div class="col-sm-9">
       <!-- <p>Artist</p>
