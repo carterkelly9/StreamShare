@@ -18,12 +18,12 @@ class SongsControllerTest < ActionController::TestCase
     get :new
     assert_select "h1", "Upload Music"
   end
-# #?????
-#   test "uploading song successfully" do
-#     post :create, {:song => {title: @title, filename: @attachment_file}}
-#     assert_select "h1", "#{@currUser.name}\'s Library"
-#   end
-# #?????
+
+  test "uploading song successfully" do
+    get :create, {:song => {title: @title, filename: @attachment_file}}
+    assert_redirected_to root_path
+  end
+# # ?????
 #   test "uploading song failed" do
 #     post :create, {song: {title: @title}}
 #     assert_select "h1", "Upload Music"

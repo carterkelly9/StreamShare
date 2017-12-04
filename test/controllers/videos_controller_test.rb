@@ -18,14 +18,15 @@ class VideosControllerTest < ActionController::TestCase
     get :new
     assert_select "h1", "Upload Video"
   end
-# #?????
-#   test "uploading video successfully" do
-#     post :create, {:video => {title: @title, filename: @attachment_file}}
-#     assert_select "h1", "#{@currUser.name}\'s Library"
-#   end
+
+  test "uploading video successfully" do
+    get :create, {:video => {title: @title, filename: @attachment_file}}
+    assert_redirected_to root_path
+  end
 # #?????
 #   test "uploading video failed" do
-#     post :create, {video: {title: @title}}
+#     get :create, {video: {title: @title, filename: "" }}
+#     assert_routing '/videos', controller: 'videos'
 #     assert_select "h1", "Upload Video"
 #   end
 # #?????

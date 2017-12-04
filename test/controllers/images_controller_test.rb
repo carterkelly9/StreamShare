@@ -20,12 +20,12 @@ class ImagesControllerTest < ActionController::TestCase
   end
 # #?????
 #   test "uploading image successfully" do
-#     post :create, {:image => {title: @title, filename: @attachment_file}}
-#     assert_select "h1", "#{@currUser.name}\'s Library"
+#     get :create, {:image => {title: @title, filename: @attachment_file}}
+#     assert_redirected_to root_path
 #   end
-# #?????
+#?????
 #   test "uploading image failed" do
-#     post :create, {image: {title: @title}}
+#     get :create, {image: {title: @title}}
 #     assert_select "h1", "Upload Image"
 #   end
 # #?????

@@ -38,7 +38,7 @@ class UsersControllerTest < ActionController::TestCase
     get	:new
     assert_response :success
 
-    get :create, {user:{name:@username, email: users(:user).email, password: @password, password_confirmation: @password}}
+    get :create, {user:{name:@username, email: users(:sUser).email, password: @password, password_confirmation: @password}}
     user = User.find_by_email(@email)
     assert_not user && user.authenticate(@password)
     assert_select 'div#error_explanation'
