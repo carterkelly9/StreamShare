@@ -2,19 +2,19 @@
   <h1><%= @song.title %></h1>
   <hr>
   <div class="row">
-    <div class="col-sm-5">
+    <div class="col-lg-5">
       <% if @song_data%>
         <%= image_tag @song_data[:art_url] , class:"album_art thumbnail"%>
       <% end %>
     </div>
 
-    <div class="col-sm-7">
+    <div class="col-lg-7">
       <p>Title: <%= @song_data[:title]%></p>
       <p>Artist: <%= @song_data[:artist]%></p>
       <p>Album: <%= @song_data[:album]%></p>
       <%= link_to "Find on Spotify", @song_data[:spotify_url], class:"btn btn-success"%><br><br>
       <%= link_to "Download", @song.filename_url, class: "btn btn-primary" %>
-      <%= button_to "Delete",  @song, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{@song.title}?"} %>
+      <%= button_to "Delete",  @song, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure that you wish to delete #{@song.title}?"} %> <br> <br>
     </div>
   </div>
 
