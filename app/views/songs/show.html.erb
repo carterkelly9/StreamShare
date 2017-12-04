@@ -1,5 +1,8 @@
 <div class="container">
   <h1><%= @song.title %></h1>
+  <% if @art_url && @art_url != ""%>
+  <%= image_tag @art_url , class:"album_art thumbnail"%>
+  <% end %>
   <hr>
   <%= audio_tag(@song.filename.url, alt: '@song.title')%>
 </div>

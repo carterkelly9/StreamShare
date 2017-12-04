@@ -1,3 +1,4 @@
+    require 'rspotify'
 class SongsController < ApplicationController
   before_action :get_session_user
 
@@ -22,6 +23,7 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
+    @art_url = get_song_art(@song.title)
   end
 
   def destroy
@@ -40,5 +42,15 @@ private
 
   def song_params
     params.require(:song).permit(:title, :filename)
+  end
+
+  def get_song_art(title)
+    song = RSpotify::Track.search(title).first
+    if song
+      return song.album.images.first["url"]
+    else
+      return ""
+    end
+
   end
 end
