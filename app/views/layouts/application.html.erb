@@ -38,7 +38,6 @@
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile", profile_path, method: "get" %></li>
                 <% if current_user.type == "Admin" %>
-                <!-- <li><a href="#">Admin Controls</a></li> -->
                 <li><%= link_to "Admin Controls", admin_path, method: "get" %></li>
                 <% end %>
                 <li role="separator" class="divider"></li>
