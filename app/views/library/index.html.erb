@@ -75,12 +75,13 @@
     <% end %>
   </tbody>
 </table>
-
-<% if !current_user.shared_media.empty? %>
+<% end %>
 </br>
 <h1>Media Shared with <%= current_user.name %></h1>
 <hr>
-
+<% if current_user.shared_media.empty? %>
+<p> No shared media by others. Get a link from other users or check your social media. </p>
+<% else%>
 <table class="table table-bordered table-striped">
   <thead class="thead-dark">
     <tr>
@@ -103,7 +104,5 @@
     <% end %>
   </tbody>
 </table>
-<% end %>
-
 <% end %>
 </div>

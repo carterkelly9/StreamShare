@@ -33,6 +33,11 @@ class UsersController < ApplicationController
      redirect_to admin_path, user_operation_notice: notice
  end
 
+ def profile
+  session[:id] = current_user.id
+  @user = User.find_by_email(current_user.email)
+ end
+
  private
 
  def user_params
