@@ -47,7 +47,7 @@ private
   def get_song_data(title)
     song = RSpotify::Track.search(title).first
     if song
-      return {art_url: song.album.images.first["url"], artist: song.artists.first.name, album: song.album.name, spotify_url: song.external_urls['spotify']}
+      return {art_url: song.album.images.first["url"], title: song.name ,artist: song.artists.first.name, album: song.album.name, spotify_url: song.external_urls['spotify']}
     else
       return null
     end
