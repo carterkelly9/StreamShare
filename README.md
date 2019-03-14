@@ -1,103 +1,83 @@
-StreamShare
+## StreamShare
 
-Project Proposal
+CMPT 276: Project Proposal
 
-CMPT 276
-
-Amandeep Rehal, Carter Kelly, Dillon Van Horn, Mya May, and Phillip Dykman
-
-Group 3
-
-StreamShare
+Group 3: Amandeep Rehal, Carter Kelly, Dillon Van Horn, Mya May, and Phillip Dykman
 
 20th October 2017
 
-ABSTRACT
+### ABSTRACT
 
 StreamShare is a collective shared media center.
 
-Users upload media (video, music, photos, etc) that they would like to access and/or stream over the internet,
+Users upload media (e.g., videos, music, photos) they would like to access online and share with other users. Each user has a media library of content combined from personal and shared uploads. Users can create playlists and reviews.
 
-and can set up sharing with other users. Each user then has a media library of content combined from their own and shared uploads.
+Streamshare pulls metadata for automatic album art/poster art.
 
-The service pulls metadata, and the user can create playlists, read reviews and have automatic album art/poster art.
+The inter-user mechanics and file hosting is similar to Google Drive.
 
-The inter-user mechanics and file hosting (sharing, access, communication, uploading) is similar to Google Drive.
+The media library management is similar to XBMC - an online media center.
 
-The media library management similar to XBMC - an online media center.
+### COMPETITIVE ANALYSIS
 
-COMPETITIVE ANALYSIS
+Most media centres focus on one media type, such as music (Subsonic, AudioGalaxy) or video (Air Video).
 
-There are many different media centers available on the internet.
+StreamShare focuses on several types of media with dedicated players for each kind.
 
-It seems that most of them focus on either music (Subsonic, AudioGalaxy), or video (Air Video).
+Users who want access to all their personal or shared media would use StreamShare as a substitute for multiple apps focused on different things.
 
-StreamShare focuses on on all types of media, with dedicated players for each kind.
+### SCOPE
 
-Users who want access to all their media (or the media shared by a friend) would use StreamShare
+#### User login and session control
 
-as a substitute for multiple apps focused on different things.
+* User-space content
 
-SCOPE
+* User access to shared data
 
-User login and session control
+* Inter-user interactions - communication, sharing, allow/deny access to personal library
 
--User-space content
+#### File hosting
 
--User access to shared data
+* Users have individual storage space
 
--Inter-user interactions - communication, sharing, allow/deny access to personal library
+* Upload protocols (web (http), SFTP, etc.)
 
-File hosting
+#### Media library
 
--Users have individual storage space
+* Web players for media types
 
--Upload protocols (web (http), SFTP, etc.)
+* Automatic metadata fetching (art, synopsis, reviews, subtitles, etc.)
 
-Media library
+* Library navigation
 
--Web players for media types
+#### API integration
 
--Automatic metadata fetching (art, synopsis, reviews, subtitles, etc.)
+* Media metadata fetching (several different APIs for media types - IMDB for reviews, OpenSubtitles for subs, etc.)
 
--Library navigation
+* Social media integration (twitter, facebook, etc.)
 
-API integration
+### SAMPLE STORIES
 
--Media metadata fetching (several different APIs for media types - IMDB for reviews, OpenSubtitles for subs, etc.)
+#### Story #1: User Authentication
 
--Social media integration (twitter, facebook, etc.)
+* When the user clicks on the sign up or sign in, the sign up or sign in page will be loaded.
 
-SAMPLE STORIES
+* If the authentication is successful, the default page containing all of the user's file will be displayed.
 
-Story #1: User Authentication
+* The default page has a navigation bar where the use can search the uploaded files, find metadata of media or logout,which will exit the app and go back to the login page.
 
-When the user clicks on the sign up or sign in, the sign up or sign in page will be loaded.
+#### Story #2: File Hosting
 
-If the authentication is successful, the default page containing all of the user's file will be displayed.
+* After the user successfully logs in, the user will be on the default page,where the user can click upload or find files in the navigation bar. If the user clicks upload, several upload methods will be displayed, and the user must choose one. Once the user selects the files to be uploaded, the option of changing another user’s access will be displayed. Here, the user can directly share to email or social media.
 
-The default page has a navigation bar where the use can search the uploaded files, find metadata of media or logout,
+#### Story #3: Media Library Search
 
-which will exit the app and go back to the login page.
+* The user can use the search bar on the default page to search for the existing media files.
 
-Story #2: File Hosting
+* When the media files are searched, the application automatically fetches relevant metadata and displays them.
 
-After the user successfully logs in, the user will be on the default page,
+#### Story #4: Opening files
 
-where the user can click upload or find files in the navigation bar. If the user clicks upload,
+* If the user clicks on a media file, the built-in player will play the content including the fetched metadata.
 
-several upload methods will be displayed, and the user must choose one. Once the user selects the files to be uploaded,
-
-the option of changing another user’s access will be displayed. Here, the user can directly share to email or social media.
-
-Story #3: Media Library Search
-
-The user can use the search bar on the default page to search for the existing media files.
-
-When the media files are searched, the application automatically fetches relevant metadata and displays them.
-
-Story #4: Opening files
-
-If the user clicks on a media file, the built-in player will play the content including the fetched metadata.
-
-The user can resume playing music and video where it left off, or fast forward and backward.
+* The user can resume playing music and video where it left off, or fast forward and backward.
