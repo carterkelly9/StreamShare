@@ -10,13 +10,13 @@ Group 3: Amandeep Rehal, Carter Kelly, Dillon Van Horn, Mya May, and Phillip Dyk
 
 StreamShare is a collective shared media center.
 
-Users upload media (e.g., videos, music, photos) they would like to access online and share with other users. Each user has a media library of content combined from personal and shared uploads. Users can create playlists and reviews.
+Users upload media (e.g., videos, music, photos) that they would like to access online and share with other users. Each user has a media library of content containing personal and shared uploads. Users can create playlists and reviews.
 
-Streamshare pulls metadata for automatic album art/poster art.
+Streamshare automically pulls metadata for album art/poster art.
 
 The inter-user mechanics and file hosting is similar to Google Drive.
 
-The media library management is similar to XBMC - an online media center.
+The media library management is similar to XBMC: an online media center.
 
 ### COMPETITIVE ANALYSIS
 
@@ -24,7 +24,7 @@ Most media centres focus on one media type, such as music (Subsonic, AudioGalaxy
 
 StreamShare focuses on several types of media with dedicated players for each kind.
 
-Users who want access to all their personal or shared media would use StreamShare as a substitute for multiple apps focused on different things.
+Users who want access to all their personal or shared media would use StreamShare as a substitute for multiple apps focused on different media types.
 
 ### SCOPE
 
@@ -68,7 +68,7 @@ Users who want access to all their personal or shared media would use StreamShar
 
 #### Story #2: File Hosting
 
-* After the user successfully logs in, the user will be on the default page,where the user can click upload or find files in the navigation bar. If the user clicks upload, several upload methods will be displayed, and the user must choose one. Once the user selects the files to be uploaded, the option of changing another user’s access will be displayed. Here, the user can directly share to email or social media.
+* After the user successfully logs in, the user will be on the default page and can click upload or find files in the navigation bar. If the user clicks upload, several upload methods will be displayed from which the user must choose one. Once the user selects the files to be uploaded, the option of changing another user’s access will be displayed. Here, the user can directly share to email or social media.
 
 #### Story #3: Media Library Search
 
